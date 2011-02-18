@@ -9,7 +9,7 @@ html{
 body{
 	height:100%;
 	width:100%;
-	background-image:url(images/fondo.png);
+	background-image:url(../images/fondo.png);
 	margin-top:0;
 	margin-bottom:0;
 }
@@ -30,6 +30,8 @@ div.redondo{
 	width:80%;
 	min-width:900px;
 	max-width:900px;
+	min-height:20px;
+	max-height:20px;
 }
 
 div.menu{

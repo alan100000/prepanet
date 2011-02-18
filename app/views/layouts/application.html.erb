@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Prepanet</title>
+  <title>Prep@Net</title>
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
+  <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
 <body>
-<div class="redondo">
-    	<img src="/images/arribaRedondo.png" />
-</div>
-<div class="centro">
-<img src="/images/bannerInicio.png" class="banner"/>
-<div class="contenido">
+	<div class="redondo">
+	    	<img src="/images/arribaRedondo.png" />
+	</div>
+	<div class="centro">
+		<img src="/images/bannerInicio.png" class="banner"/>
+		<div class="menu">    
+        	</div>
+		<div class="contenido">
 
-<%= yield %>
-</div>
-</div>
-<div class="redondo">
-    	<img src="imagenes/abajoRedondo.png" />
-    </div>
+		<%= yield %>
+		</div>
+	</div>
+	<div class="redondo">
+	    	<img src="images/abajoRedondo.png" />
+	</div>
 </body>
 </html>
