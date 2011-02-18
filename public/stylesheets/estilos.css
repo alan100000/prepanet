@@ -1,0 +1,157 @@
+@charset "utf-8";
+/* CSS Document */
+
+html{
+	height:100%;
+	width:100%;
+}
+
+body{
+	height:100%;
+	width:100%;
+	background-image:url(images/fondo.png);
+	margin-top:0;
+	margin-bottom:0;
+}
+
+table.login{
+	background-color: #cdd9cc;
+}
+
+img.banner{
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+div.redondo{
+	margin-left:auto;
+	margin-right:auto;
+	width:80%;
+	min-width:900px;
+	max-width:900px;
+}
+
+div.menu{
+	margin-top:0;
+	border-top:double;
+	border-top-color:#5bb37a;
+	border-bottom:double;
+	border-bottom-color:#5bb37a;
+	text-align:center;
+}
+
+div.centro{
+	margin-left:auto;
+	margin-right:auto;
+	min-width:900px;
+	max-width:900px;
+	width:80%;
+	min-height:100%;
+	background-color:#FFF;
+}
+
+div.contenido{
+	font:Arial, Helvetica, sans-serif;
+	margin-left:15px;
+	margin-right:15px;
+}
+
+div.registro{
+	border-top-style:double;
+	border-top-color:#5bb37a;
+	
+}
+
+div.cont {
+	text-align: center;
+	font-size:200%;
+	position:relative;
+	background-color: pink;
+
+} 
+
+h1{
+	display:inline;
+	color:#1c8299;
+}
+
+h3{
+	display:inline;	
+	color:#39a68c;
+}
+
+span.campo{
+	line-height:25px;
+}
+
+label.campo {
+    display: block;
+    width: 250px;
+    float: left;
+    text-align: left;
+}
+
+
+input.campo{
+	border:solid;
+	width:250px;
+	border-width:1px;
+	border-color:#1c8299;
+	background-color:#cdd9cc;
+}
+
+input.campo:hover{
+	border-color:#8c5502;
+	background-color:#5bb37a;
+}
+
+span.error{
+	color:#8c5502;
+	visibility:hidden;
+}
+
+br { clear: left; }
+
+input.registro{
+	border:solid;
+	width:10;
+	border-width:1px;
+	border-color:#1c8299;
+	background-color:#cdd9cc;
+}
+
+input.registro:hover{
+	border-color:#8c5502;
+	background-color:#5bb37a;
+}
+
+input.fecha{
+	border:solid;
+	border-width:1px;
+	border-color:#1c8299;
+	background-color:#cdd9cc;
+}
+
+input.fecha:hover{
+	border-color:#8c5502;
+	background-color:#5bb37a;
+}
+
+/* ----------- 
+-------------------- */
+
+table.login{
+	background-color: #cdd9cc;
+	margin-top:180px;
+}
+
+.logbg {
+	background-color: blue;
+	background-image: url(images/test4.jpg);
+	margin-top:25px;
+} 
+
+span.sancion{
+    color:red;
+}
