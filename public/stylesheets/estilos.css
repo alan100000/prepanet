@@ -157,3 +157,7 @@ table.login{
 span.sancion{
     color:red;
 }
+
+td.menu{
+	background:url(images/bgMenu.jpg) repeat 0 0;
+}

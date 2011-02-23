@@ -1,12 +1,12 @@
 Usuario
-x    nombre 	
-x    apePat
-x    apeMat
-x    sexo
+x-    nombre 	
+x-    apePat
+x-    apeMat
+x-    sexo
 x    telefono 	
 x    telCel 	
-x    eMail
-x    matricula 	
+x-    eMail
+x-    matricula 	
 x    carrera 	
 x    semestre 	
 x    promGlo  

@@ -3,6 +3,24 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
+  <p><%= f.label :matricula %><br />
+  <%= f.text_field :matricula %></p>
+
+  <p><%= f.label :nombre %><br />
+  <%= f.text_field :nombre %></p>
+
+  <p><%= f.label :apellido_paterno %><br />
+  <%= f.text_field :apellido_paterno %></p>
+
+  <p><%= f.label :apellido_materno %><br />
+  <%= f.text_field :apellido_materno %></p>
+
+  <p><%= f.label :sexo %><br/>
+  <%=f.radio_button :sexo, 'Hombre' %>
+  <%= f.label :sexo, 'Hombre' %>
+  <%=f.radio_button :sexo, 'Mujer' %>
+  <%= f.label :sexo, 'Mujer' %></p>
+
   <p><%= f.label :email %><br />
   <%= f.text_field :email %></p>
 
