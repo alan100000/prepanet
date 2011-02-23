@@ -13,7 +13,7 @@ gem 'devise'
 gem 'cancan'
 
 #Calendario embedido
-gem 'calendar_date_select'
+gem 'calendar_date_select', :git => 'http://github.com/paneq/calendar_date_select.git', :branch => 'rails3test'
 
 
 #Base de datos

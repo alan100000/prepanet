@@ -79,7 +79,8 @@
 	  <p><%= f.label :numero_de_poliza %><br />
 	  <%= f.text_field :numero_de_poliza %></p>
 
-	  <p>PENDIENTE CALENDARIO PARA VENCIMIENTO (Usar la gem del calendario)</p>
+	  <p><%= f.label :fecha_de_vencimiento %><br />
+	  <%= calendar_date_select :fecha_de_vencimiento, :last_follow_up_at %></p>
 
 	  <p><%= f.label :contacto_emergencia, 'En caso de emergencia llamar a' %><br />
 	  <%= f.text_field :contacto_emergencia %></p>
