@@ -68,6 +68,30 @@
 
   </div>
 
+  <h3>Seguro de Gastos Medicos</h3>
+  <div class="registro">
+  	  <p><%= f.label :nombre_del_seguro %><br />
+	  <%= f.text_field :nombre_del_seguro %></p>
+
+	  <p><%= f.label :compania, 'Compañia' %><br />
+	  <%= f.text_field :compania %></p>
+
+	  <p><%= f.label :numero_de_poliza %><br />
+	  <%= f.text_field :numero_de_poliza %></p>
+
+	  <p>PENDIENTE CALENDARIO PARA VENCIMIENTO (Usar la gem del calendario)</p>
+
+	  <p><%= f.label :contacto_emergencia, 'En caso de emergencia llamar a' %><br />
+	  <%= f.text_field :contacto_emergencia %></p>
+
+	  <p><%= f.label :parentesco %><br />
+	  <%= f.text_field :parentesco %></p>
+
+	  <p><%= f.label :telefono_emergencia, 'Telefono' %><br />
+	  <%= f.text_field :telefono_emergencia %></p>
+
+  </div>
+
   <p><%= f.submit "Sign up" %></p>
 <% end %>
 

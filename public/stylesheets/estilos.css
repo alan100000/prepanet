@@ -14,6 +14,12 @@ body{
 	margin-bottom:0;
 }
 
+img.imagenInicio{
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+}
+
 table.login{
 	background-color: #cdd9cc;
 }
@@ -40,7 +46,12 @@ div.menu{
 	border-top-color:#5bb37a;
 	border-bottom:double;
 	border-bottom-color:#5bb37a;
+	background-color:#green;
 	text-align:center;
+}
+
+td.menu{
+	color:red;
 }
 
 div.centro{
