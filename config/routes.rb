@@ -1,4 +1,6 @@
 Prepanet::Application.routes.draw do
+  resources :majors
+
   get "home/index"
 
   devise_for :users

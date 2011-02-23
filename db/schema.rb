@@ -10,16 +10,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110223065632) do
+ActiveRecord::Schema.define(:version => 20110223074405) do
+
+  create_table "majors", :force => true do |t|
+    t.string   "nombre"
+    t.string   "sigla"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                               :default => "", :null => false
-    t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
-    t.string   "password_salt",                       :default => "", :null => false
+    t.string   "email",                                         :default => "", :null => false
+    t.string   "encrypted_password",             :limit => 128, :default => "", :null => false
+    t.string   "password_salt",                                 :default => "", :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                       :default => 0
+    t.integer  "sign_in_count",                                 :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -29,8 +36,13 @@ ActiveRecord::Schema.define(:version => 20110223065632) do
     t.string   "nombre"
     t.string   "apellido_paterno"
     t.string   "apellido_materno"
-    t.string   "sexo",                 :limit => nil
-    t.string   "matricula",            :limit => nil
+    t.string   "sexo"
+    t.string   "matricula"
+    t.string   "telefono_particular"
+    t.string   "telefono_celular"
+    t.string   "email_personal"
+    t.integer  "promedio_global_acumulado"
+    t.integer  "promedio_del_semestre_anterior"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

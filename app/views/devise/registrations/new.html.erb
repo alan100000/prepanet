@@ -35,6 +35,39 @@
 
   </div>
 
+  <h3>Contacto</h3>
+  <div class="registro">
+  	  <p><%= f.label :telefono_particular %><br />
+	  <%= f.text_field :telefono_particular %></p>
+
+	  <p><%= f.label :telefono_celular %><br />
+	  <%= f.text_field :telefono_celular %></p>
+
+	  <p><%= f.label :email_personal %><br />
+	  <%= f.text_field :email_personal %></p>
+
+  </div>
+
+  <h3>Datos Escolares</h3>
+  <div class="registro">
+  	  <p>PENDIENTE CARREA</p>
+
+	  <p>PENDIENTE SEMESTRE</p>
+
+	  <p><%= f.label :promedio_global_acumulado %><br />
+	  <%= f.text_field :promedio_global_acumulado %></p>
+
+	  <p><%= f.label :promedio_del_semestre_anterior %><br />
+	  <%= f.text_field :promedio_del_semestre_anterior %></p>
+
+	  <p>PENDIENTE Materia1</p>
+
+	  <p>PENDIENTE Materia2</p>
+
+	  <p>PENDIENTE Materia3</p>
+
+  </div>
+
   <p><%= f.submit "Sign up" %></p>
 <% end %>
 
