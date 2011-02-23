@@ -31,6 +31,7 @@ GEM
     arel (2.0.8)
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
+    calendar_date_select (1.16.2)
     cancan (1.5.1)
     configuration (1.2.0)
     devise (1.1.7)
@@ -87,6 +88,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  calendar_date_select
   cancan
   devise
   heroku

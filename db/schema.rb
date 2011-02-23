@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110223074405) do
+ActiveRecord::Schema.define(:version => 20110223155712) do
 
   create_table "majors", :force => true do |t|
     t.string   "nombre"
@@ -43,6 +43,13 @@ ActiveRecord::Schema.define(:version => 20110223074405) do
     t.string   "email_personal"
     t.integer  "promedio_global_acumulado"
     t.integer  "promedio_del_semestre_anterior"
+    t.string   "nombre_del_seguro"
+    t.string   "compania"
+    t.string   "numero_de_poliza"
+    t.date     "fecha_de_vencimiento"
+    t.string   "contacto_emergencia"
+    t.string   "parentesco"
+    t.string   "telefono_emergencia"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

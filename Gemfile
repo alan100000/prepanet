@@ -5,9 +5,18 @@ gem 'rails', '3.0.4'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+#Servidor
 gem 'heroku'
+
+#Control de Usuarios
 gem 'devise'
 gem 'cancan'
+
+#Calendario embedido
+gem 'calendar_date_select'
+
+
+#Base de datos
 gem 'sqlite3'
 
 # Use unicorn as the web server
