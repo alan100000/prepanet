@@ -10,7 +10,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110223155712) do
+ActiveRecord::Schema.define(:version => 20110224001544) do
+
+  create_table "areas", :force => true do |t|
+    t.string   "nombre"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "courses", :force => true do |t|
+    t.string   "nombre"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "majors", :force => true do |t|
     t.string   "nombre"
@@ -36,8 +48,8 @@ ActiveRecord::Schema.define(:version => 20110223155712) do
     t.string   "nombre"
     t.string   "apellido_paterno"
     t.string   "apellido_materno"
-    t.string   "sexo"
-    t.string   "matricula"
+    t.string   "sexo",                           :limit => nil
+    t.string   "matricula",                      :limit => nil
     t.string   "telefono_particular"
     t.string   "telefono_celular"
     t.string   "email_personal"
