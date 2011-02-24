@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(:version => 20110223155712) do
     t.string   "nombre"
     t.string   "apellido_paterno"
     t.string   "apellido_materno"
-    t.string   "sexo",                           :limit => nil
-    t.string   "matricula",                      :limit => nil
+    t.string   "sexo"
+    t.string   "matricula"
     t.string   "telefono_particular"
     t.string   "telefono_celular"
     t.string   "email_personal"

@@ -1,4 +1,8 @@
 Prepanet::Application.routes.draw do
+  resources :courses
+
+  resources :areas
+
   resources :majors
 
   get "home/index"
