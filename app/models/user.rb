@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
 		  :nombre_del_seguro, :compania, :numero_de_poliza, :fecha_de_vencimiento, :contacto_emergencia, :parentesco, :telefono_emergencia
 		  :remember_me
 
+  validates :password_confirmation, :presence => true
+
   validates :nombre, :presence => true
   validates :apellido_paterno, :presence => true
   validates :apellido_materno, :presence => true
