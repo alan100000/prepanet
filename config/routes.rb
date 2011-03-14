@@ -1,4 +1,7 @@
 Prepanet::Application.routes.draw do
+
+  get "admin/index"
+
   resources :courses
 
   resources :areas
