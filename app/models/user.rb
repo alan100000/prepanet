@@ -11,6 +11,10 @@ class User < ActiveRecord::Base
 		  :promedio_global_acumulado, :promedio_del_semestre_anterior,
 		  :nombre_del_seguro, :compania, :numero_de_poliza, :fecha_de_vencimiento, :contacto_emergencia, :parentesco, :telefono_emergencia
 		  :remember_me
+		  
+  #RELACIONES SEXUALES
+  has_one :major
+   
 
   validates :password_confirmation, :presence => true
 
@@ -30,7 +34,7 @@ class User < ActiveRecord::Base
   validates :nombre_del_seguro, :presence => true
   validates :compania, :presence => true
   validates :numero_de_poliza, :presence => true
-  validates :fecha_de_vencimiento, :presence => true
+  #validates :fecha_de_vencimiento, :presence => true
   validates :contacto_emergencia, :presence => true
   validates :parentesco, :presence => true
   validates :telefono_emergencia, :presence => true

@@ -41,6 +41,13 @@ class CoursesController < ApplicationController
   # POST /courses.xml
   def create
     @course = Course.new(params[:course])
+    areastring = params[:area]
+    
+    a=Area.where(:nombre => areastring)
+    a.each do |n|
+        puts n.id
+        @course.area_id=n.id
+    end
 
     respond_to do |format|
       if @course.save

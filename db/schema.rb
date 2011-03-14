@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110224001544) do
+ActiveRecord::Schema.define(:version => 20110314012505) do
 
   create_table "areas", :force => true do |t|
     t.string   "nombre"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20110224001544) do
     t.string   "nombre"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "area_id"
   end
 
   create_table "majors", :force => true do |t|
@@ -62,6 +63,7 @@ ActiveRecord::Schema.define(:version => 20110224001544) do
     t.string   "contacto_emergencia"
     t.string   "parentesco"
     t.string   "telefono_emergencia"
+    t.integer  "major_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
