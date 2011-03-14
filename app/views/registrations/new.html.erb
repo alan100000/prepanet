@@ -1,0 +1,100 @@
+<h1>Registro</h1>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <h3>Datos Personales</h3>
+  <div class="registro">
+
+	  <p><%= f.label :matricula %><br />
+	  <%= f.text_field :matricula %></p>
+
+	  <p><%= f.label :nombre %><br />
+	  <%= f.text_field :nombre %></p>
+
+	  <p><%= f.label :apellido_paterno %><br />
+	  <%= f.text_field :apellido_paterno %></p>
+
+	  <p><%= f.label :apellido_materno %><br />
+	  <%= f.text_field :apellido_materno %></p>
+
+	  <p><%= f.label :sexo %><br/>
+	  <%=f.radio_button :sexo, 'Hombre' %>
+	  <%= f.label :sexo, 'Hombre' %>
+	  <%=f.radio_button :sexo, 'Mujer' %>
+	  <%= f.label :sexo, 'Mujer' %></p>
+
+	  <p><%= f.label :email %><br />
+	  <%= f.text_field :email %></p>
+
+	  <p><%= f.label :password, 'Contraseña' %><br />
+	  <%= f.password_field :password %></p>
+
+	  <p><%= f.label :password_confirmation, 'Confirmacion de contraseña' %><br />
+	  <%= f.password_field :password_confirmation %></p>
+
+  </div>
+
+  <h3>Contacto</h3>
+  <div class="registro">
+  	  <p><%= f.label :telefono_particular %><br />
+	  <%= f.text_field :telefono_particular %></p>
+
+	  <p><%= f.label :telefono_celular %><br />
+	  <%= f.text_field :telefono_celular %></p>
+
+	  <p><%= f.label :email_personal %><br />
+	  <%= f.text_field :email_personal %></p>
+
+  </div>
+
+  <h3>Datos Escolares</h3>
+  <div class="registro">
+  	  <p>PENDIENTE CARRERA
+  	  </p>
+
+	  <p>PENDIENTE SEMESTRE</p>
+
+	  <p><%= f.label :promedio_global_acumulado %><br />
+	  <%= f.text_field :promedio_global_acumulado %></p>
+
+	  <p><%= f.label :promedio_del_semestre_anterior %><br />
+	  <%= f.text_field :promedio_del_semestre_anterior %></p>
+
+	  <p>PENDIENTE Materia1</p>
+
+	  <p>PENDIENTE Materia2</p>
+
+	  <p>PENDIENTE Materia3</p>
+
+  </div>
+
+  <h3>Seguro de Gastos Medicos</h3>
+  <div class="registro">
+  	  <p><%= f.label :nombre_del_seguro %><br />
+	  <%= f.text_field :nombre_del_seguro %></p>
+
+	  <p><%= f.label :compania, 'Compañia' %><br />
+	  <%= f.text_field :compania %></p>
+
+	  <p><%= f.label :numero_de_poliza %><br />
+	  <%= f.text_field :numero_de_poliza %></p>
+
+	  <p><%= f.label :fecha_de_vencimiento %><br />
+	  <%= calendar_date_select :fecha_de_vencimiento, :last_follow_up_at, :popup => :force %></p>
+
+	  <p><%= f.label :contacto_emergencia, 'En caso de emergencia llamar a' %><br />
+	  <%= f.text_field :contacto_emergencia %></p>
+
+	  <p><%= f.label :parentesco %><br />
+	  <%= f.text_field :parentesco %></p>
+
+	  <p><%= f.label :telefono_emergencia, 'Telefono' %><br />
+	  <%= f.text_field :telefono_emergencia %></p>
+
+  </div>
+
+  <p><%= f.submit "Registrarse" %></p>
+<% end %>
+
+<%= render :partial => "devise/shared/links" %>
