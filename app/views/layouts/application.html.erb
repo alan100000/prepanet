@@ -17,9 +17,13 @@
 		<div class="menu">
 			<table class="menu">
 				<tr class="menu">
-					<td class="menu">Registro</td>
+					<td class="menu">
+						<%= link_to "Registro", :controller => "devise/registrations", :action => "new" %>
+					</td>
 					<td class="menu">Quiz</td>
-					<td class="menu">Editar Cuenta</td>
+					<td class="menu">
+						<%= link_to "Editar Cuenta", :controller => "devise/registrations", :action => "edit" %>
+					</td>
 					<td class="menu">Administracion</td>
 				</tr>
 			</table>
