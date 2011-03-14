@@ -17,9 +17,11 @@
 		<div class="menu">
 			<table class="menu">
 				<tr class="menu">
-					<td class="menu">
-						<%= link_to "Registro", new_user_registration_path %>
-					</td>
+					<% if (!user_signed_in?) %>
+						<td class="menu">
+							<%= link_to "Registro", new_user_registration_path %>
+						</td>
+					<% end %>
 					<% if user_signed_in? %>
 						<td class="menu">Quiz</td>
 					<% end %>
@@ -31,7 +33,8 @@
 						<% end %>
 					</td>
 					<% if can? :all, Area %>
-						<td class="menu">Administracion</td>
+						<td class="menu">
+							<%= link_to "Administracion", admin_index_path %>
 						</td>
 					<% end %>
 				</tr>
