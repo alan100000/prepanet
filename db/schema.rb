@@ -10,7 +10,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20110314012505) do
+=======
+ActiveRecord::Schema.define(:version => 20110314015437) do
+>>>>>>> 724a0eac280442dba21e243bb3ad93dc25502b34
 
   create_table "areas", :force => true do |t|
     t.string   "nombre"
@@ -63,7 +67,11 @@ ActiveRecord::Schema.define(:version => 20110314012505) do
     t.string   "contacto_emergencia"
     t.string   "parentesco"
     t.string   "telefono_emergencia"
+<<<<<<< HEAD
     t.integer  "major_id"
+=======
+    t.boolean  "admin"
+>>>>>>> 724a0eac280442dba21e243bb3ad93dc25502b34
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

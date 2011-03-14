@@ -18,15 +18,36 @@
 			<table class="menu">
 				<tr class="menu">
 					<td class="menu">
-						<%= link_to "Registro", :controller => "devise/registrations", :action => "new" %>
+						<%= link_to "Registro", new_user_registration_path %>
 					</td>
-					<td class="menu">Quiz</td>
+					<% if user_signed_in? %>
+						<td class="menu">Quiz</td>
+					<% end %>
 					<td class="menu">
-						<%= link_to "Editar Cuenta", :controller => "devise/registrations", :action => "edit" %>
+						<% if user_signed_in? %>
+							<%= link_to "Editar Cuenta", edit_user_registration_path %>
+						<% else %>
+							<%= link_to "Iniciar Sesion", new_user_session_path %>
+						<% end %>
 					</td>
-					<td class="menu">Administracion</td>
+					<% if can? :all, Area %>
+						<td class="menu">Administracion</td>
+						</td>
+					<% end %>
 				</tr>
 			</table>
+			<% if user_signed_in? %>
+				<table class="menu">
+					<tr>
+						<td class="menu">	
+							Hola <b><%= current_user.nombre %></b>
+						</td>
+						<td class="menu">
+							<%= link_to "Cerrar Sesion", destroy_user_session_path %>
+						</td>
+					</tr>
+				</table>
+			<% end %>
         	</div>
 		<div class="contenido">
 		<br/>

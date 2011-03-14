@@ -1,6 +1,8 @@
 class AreasController < ApplicationController
   # GET /areas
   # GET /areas.xml
+load_and_authorize_resource
+
   def index
     @areas = Area.all
 
