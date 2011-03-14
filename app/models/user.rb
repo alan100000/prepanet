@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   validates :nombre_del_seguro, :presence => true
   validates :compania, :presence => true
   validates :numero_de_poliza, :presence => true
-  validates :fecha_de_vencimiento, :presence => true
+  #validates :fecha_de_vencimiento, :presence => true
   validates :contacto_emergencia, :presence => true
   validates :parentesco, :presence => true
   validates :telefono_emergencia, :presence => true

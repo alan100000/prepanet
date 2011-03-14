@@ -1,6 +1,7 @@
 class MajorsController < ApplicationController
   # GET /majors
   # GET /majors.xml
+load_and_authorize_resource
   def index
     @majors = Major.all
 
