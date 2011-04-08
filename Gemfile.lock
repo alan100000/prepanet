@@ -45,6 +45,7 @@ GEM
       warden (~> 1.0.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    fastercsv (1.5.4)
     heroku (1.17.15)
       json (~> 1.4.6)
       launchy (~> 0.3.2)
@@ -97,6 +98,7 @@ DEPENDENCIES
   calendar_date_select!
   cancan
   devise
+  fastercsv
   heroku
   rails (= 3.0.4)
   sqlite3

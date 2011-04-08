@@ -4466,3 +4466,277 @@ NameError (uninitialized constant Mime::XLS):
 Rendered /home/jorge/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (12.0ms)
 Rendered /home/jorge/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (973.5ms)
 Rendered /home/jorge/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (1008.1ms)
+
+
+Started GET "/areas" for 127.0.0.1 at Fri Apr 08 12:01:29 -0500 2011
+  Processing by AreasController#index as HTML
+  [1m[36mSQL (3.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mArea Load (0.4ms)[0m  [1mSELECT "areas".* FROM "areas"[0m
+Rendered areas/index.html.erb within layouts/application (17.9ms)
+Completed 200 OK in 297ms (Views: 36.4ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/areas/new" for 127.0.0.1 at Fri Apr 08 12:01:32 -0500 2011
+  Processing by AreasController#new as HTML
+  [1m[35mUser Load (2.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered areas/_form.html.erb (34.4ms)
+Rendered areas/new.html.erb within layouts/application (73.2ms)
+Completed 200 OK in 472ms (Views: 110.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/areas/images/abajoRedondo.png" for 127.0.0.1 at Fri Apr 08 12:01:34 -0500 2011
+
+ActionController::RoutingError (No route matches "/areas/images/abajoRedondo.png"):
+  
+
+Rendered /home/jorge/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (5.0ms)
+
+
+Started GET "/areas/images/abajoRedondo.png" for 127.0.0.1 at Fri Apr 08 12:01:34 -0500 2011
+
+ActionController::RoutingError (No route matches "/areas/images/abajoRedondo.png"):
+  
+
+Rendered /home/jorge/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (3.8ms)
+
+
+Started GET "/areas/images/favicon.png" for 127.0.0.1 at Fri Apr 08 12:01:34 -0500 2011
+
+ActionController::RoutingError (No route matches "/areas/images/favicon.png"):
+  
+
+Rendered /home/jorge/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (3.8ms)
+
+
+Started GET "/areas/images/favicon.png" for 127.0.0.1 at Fri Apr 08 12:01:35 -0500 2011
+
+ActionController::RoutingError (No route matches "/areas/images/favicon.png"):
+  
+
+Rendered /home/jorge/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.8ms)
+
+
+Started POST "/areas" for 127.0.0.1 at Fri Apr 08 12:01:40 -0500 2011
+  Processing by AreasController#create as HTML
+  Parameters: {"commit"=>"Create Area", "authenticity_token"=>"oCM1cF74/F4iy7RCuQkt8BnM93cV/DQ1Zc6eA9m+aV4=", "utf8"=>"✓", "area"=>{"nombre"=>"HOLA"}}
+  [1m[36mUser Load (2.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mAREL (1.7ms)[0m  INSERT INTO "areas" ("nombre", "created_at", "updated_at") VALUES ('HOLA', '2011-04-08 17:01:40.797154', '2011-04-08 17:01:40.797154')
+Redirected to http://localhost:3000/areas/1
+Completed 302 Found in 536ms
+
+
+Started GET "/areas/1" for 127.0.0.1 at Fri Apr 08 12:01:40 -0500 2011
+  Processing by AreasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArea Load (0.6ms)[0m  [1mSELECT "areas".* FROM "areas" WHERE "areas"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "areas".* FROM "areas" WHERE "areas"."id" = 1 LIMIT 1[0m
+Rendered areas/show.html.erb within layouts/application (26.7ms)
+Completed 200 OK in 243ms (Views: 46.0ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/areas/images/abajoRedondo.png" for 127.0.0.1 at Fri Apr 08 12:01:41 -0500 2011
+
+ActionController::RoutingError (No route matches "/areas/images/abajoRedondo.png"):
+  
+
+Rendered /home/jorge/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (8.3ms)
+
+
+Started GET "/areas/images/abajoRedondo.png" for 127.0.0.1 at Fri Apr 08 12:01:42 -0500 2011
+
+ActionController::RoutingError (No route matches "/areas/images/abajoRedondo.png"):
+  
+
+Rendered /home/jorge/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (3.1ms)
+
+
+Started GET "/areas" for 127.0.0.1 at Fri Apr 08 12:16:33 -0500 2011
+  Processing by AreasController#index as HTML
+  [1m[35mUser Load (1.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mArea Load (0.8ms)[0m  [1mSELECT "areas".* FROM "areas"[0m
+Rendered areas/index.html.erb within layouts/application (34.5ms)
+Completed 200 OK in 273ms (Views: 50.6ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/areas/new" for 127.0.0.1 at Fri Apr 08 12:16:38 -0500 2011
+  Processing by AreasController#new as HTML
+  [1m[35mUser Load (1.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered areas/_form.html.erb (42.2ms)
+Rendered areas/new.html.erb within layouts/application (72.4ms)
+Completed 200 OK in 620ms (Views: 110.4ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/areas/images/abajoRedondo.png" for 127.0.0.1 at Fri Apr 08 12:16:39 -0500 2011
+
+ActionController::RoutingError (No route matches "/areas/images/abajoRedondo.png"):
+  
+
+Rendered /home/jorge/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (4.0ms)
+
+
+Started GET "/areas/images/abajoRedondo.png" for 127.0.0.1 at Fri Apr 08 12:16:40 -0500 2011
+
+ActionController::RoutingError (No route matches "/areas/images/abajoRedondo.png"):
+  
+
+Rendered /home/jorge/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (8.1ms)
+
+
+Started POST "/areas" for 127.0.0.1 at Fri Apr 08 12:16:44 -0500 2011
+  Processing by AreasController#create as HTML
+  Parameters: {"commit"=>"Create Area", "authenticity_token"=>"oCM1cF74/F4iy7RCuQkt8BnM93cV/DQ1Zc6eA9m+aV4=", "utf8"=>"✓", "area"=>{"nombre"=>"ADIOS"}}
+  [1m[36mUser Load (2.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mAREL (0.8ms)[0m  INSERT INTO "areas" ("updated_at", "created_at", "nombre") VALUES ('2011-04-08 17:16:45.184877', '2011-04-08 17:16:45.184877', 'ADIOS')
+Redirected to http://localhost:3000/areas/2
+Completed 302 Found in 556ms
+
+
+Started GET "/areas/2" for 127.0.0.1 at Fri Apr 08 12:16:45 -0500 2011
+  Processing by AreasController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mArea Load (0.8ms)[0m  [1mSELECT "areas".* FROM "areas" WHERE "areas"."id" = 2 LIMIT 1[0m
+  [1m[35mUser Load (1.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "areas".* FROM "areas" WHERE "areas"."id" = 2 LIMIT 1[0m
+Rendered areas/show.html.erb within layouts/application (43.2ms)
+Completed 200 OK in 338ms (Views: 65.4ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/areas/images/abajoRedondo.png" for 127.0.0.1 at Fri Apr 08 12:16:46 -0500 2011
+
+ActionController::RoutingError (No route matches "/areas/images/abajoRedondo.png"):
+  
+
+Rendered /home/jorge/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (16.2ms)
+
+
+Started GET "/areas/images/abajoRedondo.png" for 127.0.0.1 at Fri Apr 08 12:16:47 -0500 2011
+
+ActionController::RoutingError (No route matches "/areas/images/abajoRedondo.png"):
+  
+
+Rendered /home/jorge/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (4.3ms)
+
+
+Started GET "/areas" for 127.0.0.1 at Fri Apr 08 12:16:49 -0500 2011
+  Processing by AreasController#index as HTML
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mArea Load (0.6ms)[0m  [1mSELECT "areas".* FROM "areas"[0m
+Rendered areas/index.html.erb within layouts/application (41.5ms)
+Completed 200 OK in 255ms (Views: 56.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/areas" for 127.0.0.1 at Fri Apr 08 12:19:32 -0500 2011
+  Processing by AreasController#index as HTML
+  [1m[35mUser Load (2.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mArea Load (0.7ms)[0m  [1mSELECT "areas".* FROM "areas"[0m
+Rendered areas/index.html.erb within layouts/application (41.0ms)
+Completed 200 OK in 252ms (Views: 56.1ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/areas.xls" for 127.0.0.1 at Fri Apr 08 12:19:38 -0500 2011
+  Processing by AreasController#index as XLS
+  [1m[35mUser Load (1.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mArea Load (1.1ms)[0m  [1mSELECT "areas".* FROM "areas"[0m
+Rendered text template (0.0ms)
+Sent data  (15.5ms)
+Completed 200 OK in 376ms (Views: 15.0ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/areas.xml" for 127.0.0.1 at Fri Apr 08 12:20:03 -0500 2011
+  Processing by AreasController#index as XML
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mArea Load (0.6ms)[0m  [1mSELECT "areas".* FROM "areas"[0m
+Completed 200 OK in 327ms (Views: 143.2ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/areas.xls" for 127.0.0.1 at Fri Apr 08 12:20:09 -0500 2011
+  Processing by AreasController#index as XLS
+  [1m[35mUser Load (2.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mArea Load (0.9ms)[0m  [1mSELECT "areas".* FROM "areas"[0m
+Rendered text template (0.0ms)
+Sent data  (5.3ms)
+Completed 200 OK in 327ms (Views: 4.6ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/areas.doc" for 127.0.0.1 at Fri Apr 08 12:20:44 -0500 2011
+  Processing by AreasController#index as 
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mArea Load (0.7ms)[0m  [1mSELECT "areas".* FROM "areas"[0m
+Completed 406 Not Acceptable in 195ms
+
+
+Started GET "/areas.xls" for 127.0.0.1 at Fri Apr 08 12:23:31 -0500 2011
+  Processing by AreasController#index as XLS
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mArea Load (0.7ms)[0m  [1mSELECT "areas".* FROM "areas"[0m
+Rendered text template (0.0ms)
+Sent data  (3.7ms)
+Completed 200 OK in 369ms (Views: 3.2ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/areas.csv" for 127.0.0.1 at Fri Apr 08 12:27:39 -0500 2011
+  Processing by AreasController#index as CSV
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mArea Load (0.7ms)[0m  [1mSELECT "areas".* FROM "areas"[0m
+Completed   in 192ms
+
+NoMethodError (undefined method `to_csv' for #<Array:0xb6c87510>):
+  app/controllers/areas_controller.rb:13:in `index'
+  app/controllers/areas_controller.rb:9:in `index'
+
+Rendered /home/jorge/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.1ms)
+Rendered /home/jorge/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (974.6ms)
+Rendered /home/jorge/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (1005.3ms)
+
+
+Started GET "/areas.xls" for 127.0.0.1 at Fri Apr 08 12:29:17 -0500 2011
+  Processing by AreasController#index as XLS
+  [1m[35mUser Load (2.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mArea Load (0.9ms)[0m  [1mSELECT "areas".* FROM "areas"[0m
+Rendered text template (0.0ms)
+Sent data  (5.1ms)
+Completed 200 OK in 568ms (Views: 4.4ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/areas.xls" for 127.0.0.1 at Fri Apr 08 12:30:09 -0500 2011
+  Processing by AreasController#index as XLS
+  [1m[35mUser Load (1.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mArea Load (1.0ms)[0m  [1mSELECT "areas".* FROM "areas"[0m
+Rendered text template (0.0ms)
+Sent data  (4.9ms)
+Completed 200 OK in 386ms (Views: 4.2ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/areas" for 127.0.0.1 at Fri Apr 08 12:31:58 -0500 2011
+  Processing by AreasController#index as HTML
+  [1m[36mSQL (2.8ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (1.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mArea Load (0.8ms)[0m  [1mSELECT "areas".* FROM "areas"[0m
+Rendered areas/index.html.erb within layouts/application (64.9ms)
+Completed 200 OK in 615ms (Views: 110.9ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/areas.csv" for 127.0.0.1 at Fri Apr 08 12:32:02 -0500 2011
+  Processing by AreasController#index as CSV
+  [1m[35mUser Load (2.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mArea Load (0.7ms)[0m  [1mSELECT "areas".* FROM "areas"[0m
+Rendered text template (0.0ms)
+Sent data  (15.6ms)
+Completed 200 OK in 328ms (Views: 15.0ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/areas.xls" for 127.0.0.1 at Fri Apr 08 12:34:29 -0500 2011
+  Processing by AreasController#index as XLS
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mArea Load (0.7ms)[0m  [1mSELECT "areas".* FROM "areas"[0m
+Rendered text template (0.0ms)
+Sent data  (5.5ms)
+Completed 200 OK in 216ms (Views: 4.6ms | ActiveRecord: 2.0ms)
