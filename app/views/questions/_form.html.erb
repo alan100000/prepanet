@@ -26,7 +26,7 @@
         <%= builder.label :content, "Answer" %><br />
         <%= builder.text_field :content %>
         <%= builder.label :option, "Option" %>
-        <%= builder.text_field :option, value:"#{index}", size:"2"%>
+        <%= builder.text_field :option, :value=>"#{index}", :size=>"2"%>
         <% index += 1 %> 
       </p>
     <% end %>
