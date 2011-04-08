@@ -9,6 +9,7 @@ load_and_authorize_resource
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @areas }
+      format.xls { send_data @users.to_xls }
     end
   end
 
