@@ -4740,3 +4740,43 @@ Started GET "/areas.xls" for 127.0.0.1 at Fri Apr 08 12:34:29 -0500 2011
 Rendered text template (0.0ms)
 Sent data  (5.5ms)
 Completed 200 OK in 216ms (Views: 4.6ms | ActiveRecord: 2.0ms)
+  [1m[36mSQL (2.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.8ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (1.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to DeviseCreateUsers (20110218000519)
+Migrating to AddNameToUser (20110223043651)
+Migrating to AddCosasToUser (20110223071023)
+Migrating to CreateMajors (20110223072250)
+Migrating to AddMasCosasToUser (20110223074405)
+Migrating to AddSeguroToUser (20110223155712)
+Migrating to CreateAreas (20110224001428)
+Migrating to CreateCourses (20110224001544)
+Migrating to AddCarreraToUser (20110314003005)
+Migrating to AddAreaToCourse (20110314012505)
+Migrating to AddAdminToUser (20110314015437)
+Migrating to AddNuevoToUser (20110314095700)
+Migrating to CreateQuestions (20110318012233)
+Migrating to CreateAnswers (20110318012554)
+  [1m[35mSQL (9.9ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.8ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.8ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("answers")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("areas")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("courses")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("majors")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("questions")
+  [1m[36mSQL (0.4ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.3ms)[0m  PRAGMA index_info('index_users_on_reset_password_token')
+  [1m[36mSQL (0.3ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
