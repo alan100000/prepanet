@@ -16,17 +16,13 @@
     <%= f.text_area :content , :rows => 3%>
   </div>
   <div class="field">
-    <%= f.label :correct_answer %><br />
-    <%= f.text_field :correct_answer %>
-  </div>
-  <div class="field">
     <% index = 1 %> 
     <%= f.fields_for :answers do |builder| %>
       <p>
         <%= builder.label :content, "Answer" %><br />
         <%= builder.text_field :content %>
-        <%= builder.label :option, "Option" %>
-        <%= builder.text_field :option, :value=>"#{index}", :size=>"2"%>
+        <%= builder.label :option, "Correcta" %>
+        <%= radio_button :question, :correct_answer, "#{index}" %>
         <% index += 1 %> 
       </p>
     <% end %>
