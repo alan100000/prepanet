@@ -3389,3 +3389,1209 @@ ActionView::Template::Error (compile error
 Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
 Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (352.7ms)
 Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (360.6ms)
+
+
+Started GET "/questions/1/edit" for 127.0.0.1 at Wed Mar 30 17:15:37 -0600 2011
+  Processing by QuestionsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mQuestion Load (0.2ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."id" = 1 LIMIT 1
+ERROR: compiling _app_views_questions__form_html_erb__601265306_70028289575940_878110 RAISED compile error
+/home/guayo/Desktop/prepanet/app/views/questions/_form.html.erb:29: syntax error, unexpected tSYMBEG, expecting kDO or '{' or '('
+...er.text_field :option, value:"{index}", size:"2");@output_bu...
+                              ^
+/home/guayo/Desktop/prepanet/app/views/questions/_form.html.erb:29: syntax error, unexpected ',', expecting ')'
+...ield :option, value:"{index}", size:"2");@output_buffer.safe...
+                              ^
+Function body:           def _app_views_questions__form_html_erb__601265306_70028289575940_878110(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "questions/_form";_old_output_buffer = @output_buffer;form = local_assigns[:form];;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.append=  form_for(@question) do |f| @output_buffer.safe_concat('
+');   if @question.errors.any? 
+@output_buffer.safe_concat('    <div id="error_explanation">
+      <h2>');@output_buffer.append= ( pluralize(@question.errors.count, "error") );@output_buffer.safe_concat(' prohibited this question from being saved:</h2>
+
+      <ul>
+');@output_buffer.append_if_string=        @question.errors.full_messages.each do |msg| 
+@output_buffer.safe_concat('        <li>');@output_buffer.append= ( msg );@output_buffer.safe_concat('</li>
+');       end 
+@output_buffer.safe_concat('      </ul>
+    </div>
+');   end 
+@output_buffer.safe_concat('
+  <div class="field">
+    ');@output_buffer.append= ( f.label :content );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_area :content , :rows => 3);@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :correct_answer );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :correct_answer );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+');     index = 1  
+@output_buffer.safe_concat('    ');@output_buffer.append=  f.fields_for :answers do |builder| @output_buffer.safe_concat('
+');@output_buffer.safe_concat('      <p>
+        ');@output_buffer.append= ( builder.label :content, "Answer" );@output_buffer.safe_concat('<br />
+        ');@output_buffer.append= ( builder.text_field :content );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('        ');@output_buffer.append= ( builder.label :option, "Option" );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('        ');@output_buffer.append= ( builder.text_field :option, value:"{index}", size:"2");@output_buffer.safe_concat('
+');         index += 1  
+@output_buffer.safe_concat('      </p>
+');     end 
+@output_buffer.safe_concat('  </div>
+  <div class="actions">
+    ');@output_buffer.append= ( f.submit );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+'); end 
+@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /home/guayo/Desktop/prepanet/app/views/questions/_form.html.erb:41:in `compile'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:134:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:54:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:127:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/partials.rb:333:in `render_partial'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/partials.rb:262:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/partials.rb:260:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/partials.rb:378:in `_render_partial'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/rendering.rb:31:in `render'
+/home/guayo/Desktop/prepanet/app/views/questions/edit.html.erb:3:in `_app_views_questions_edit_html_erb___317733182_70028289619560_0'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:135:in `send'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:135:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:54:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:127:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/rendering.rb:59:in `_render_template'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/rendering.rb:56:in `_render_template'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/rendering.rb:26:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:115:in `_render_template'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:109:in `render_to_body'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:102:in `render_to_string'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:93:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/rendering.rb:17:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/base.rb:150:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/callbacks.rb:18:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:435:in `_run__16832433__process_action__1992409046__callbacks'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:409:in `send'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:93:in `send'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:93:in `run_callbacks'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/base.rb:119:in `process'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:41:in `process'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal.rb:138:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal.rb:178:in `action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:148:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:93:in `recognize'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:82:in `optimized_each'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:92:in `recognize'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:139:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/routing/route_set.rb:492:in `call'
+/usr/lib/ruby/gems/1.8/gems/warden-1.0.3/lib/warden/manager.rb:35:in `call'
+/usr/lib/ruby/gems/1.8/gems/warden-1.0.3/lib/warden/manager.rb:34:in `catch'
+/usr/lib/ruby/gems/1.8/gems/warden-1.0.3/lib/warden/manager.rb:34:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/head.rb:14:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/methodoverride.rb:24:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/cookies.rb:302:in `call'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/query_cache.rb:32:in `call'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/query_cache.rb:12:in `cache'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/query_cache.rb:31:in `call'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:354:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/sendfile.rb:107:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/rack/logger.rb:13:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/runtime.rb:17:in `call'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `synchronize'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/static.rb:30:in `call'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/application.rb:168:in `call'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/application.rb:77:in `send'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/application.rb:77:in `method_missing'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/rack/log_tailer.rb:14:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/content_length.rb:13:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/handler/webrick.rb:52:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/handler/webrick.rb:13:in `run'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/server.rb:213:in `start'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/commands/server.rb:65:in `start'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/commands.rb:30
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/commands.rb:27:in `tap'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/commands.rb:27
+script/rails:6:in `require'
+script/rails:6
+Rendered questions/_form.html.erb (1.6ms)
+Rendered questions/edit.html.erb within layouts/application (3.3ms)
+Completed   in 19ms
+
+ActionView::Template::Error (compile error
+/home/guayo/Desktop/prepanet/app/views/questions/_form.html.erb:29: syntax error, unexpected tSYMBEG, expecting kDO or '{' or '('
+...er.text_field :option, value:"{index}", size:"2");@output_bu...
+                              ^
+/home/guayo/Desktop/prepanet/app/views/questions/_form.html.erb:29: syntax error, unexpected ',', expecting ')'
+...ield :option, value:"{index}", size:"2");@output_buffer.safe...
+                              ^):
+    26:         <%= builder.label :content, "Answer" %><br />
+    27:         <%= builder.text_field :content %>
+    28:         <%= builder.label :option, "Option" %>
+    29:         <%= builder.text_field :option, value:"{index}", size:"2"%>
+    30:         <% index += 1 %> 
+    31:       </p>
+    32:     <% end %>
+  app/views/questions/_form.html.erb:41:in `compile'
+  app/views/questions/edit.html.erb:3:in `_app_views_questions_edit_html_erb___317733182_70028289619560_0'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (282.3ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (360.1ms)
+
+
+Started GET "/questions/1/edit" for 127.0.0.1 at Wed Mar 30 17:16:31 -0600 2011
+  Processing by QuestionsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mQuestion Load (0.2ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."id" = 1 LIMIT 1[0m
+ERROR: compiling _app_views_questions__form_html_erb__601265306_70028288960640_878110 RAISED compile error
+/home/guayo/Desktop/prepanet/app/views/questions/_form.html.erb:29: syntax error, unexpected tSYMBEG, expecting kDO or '{' or '('
+...er.text_field :option, value:"#index", size:"2");@output_buf...
+                              ^
+/home/guayo/Desktop/prepanet/app/views/questions/_form.html.erb:29: syntax error, unexpected ',', expecting ')'
+...field :option, value:"#index", size:"2");@output_buffer.safe...
+                              ^
+Function body:           def _app_views_questions__form_html_erb__601265306_70028288960640_878110(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "questions/_form";_old_output_buffer = @output_buffer;form = local_assigns[:form];;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.append=  form_for(@question) do |f| @output_buffer.safe_concat('
+');   if @question.errors.any? 
+@output_buffer.safe_concat('    <div id="error_explanation">
+      <h2>');@output_buffer.append= ( pluralize(@question.errors.count, "error") );@output_buffer.safe_concat(' prohibited this question from being saved:</h2>
+
+      <ul>
+');@output_buffer.append_if_string=        @question.errors.full_messages.each do |msg| 
+@output_buffer.safe_concat('        <li>');@output_buffer.append= ( msg );@output_buffer.safe_concat('</li>
+');       end 
+@output_buffer.safe_concat('      </ul>
+    </div>
+');   end 
+@output_buffer.safe_concat('
+  <div class="field">
+    ');@output_buffer.append= ( f.label :content );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_area :content , :rows => 3);@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :correct_answer );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :correct_answer );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+');     index = 1  
+@output_buffer.safe_concat('    ');@output_buffer.append=  f.fields_for :answers do |builder| @output_buffer.safe_concat('
+');@output_buffer.safe_concat('      <p>
+        ');@output_buffer.append= ( builder.label :content, "Answer" );@output_buffer.safe_concat('<br />
+        ');@output_buffer.append= ( builder.text_field :content );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('        ');@output_buffer.append= ( builder.label :option, "Option" );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('        ');@output_buffer.append= ( builder.text_field :option, value:"#index", size:"2");@output_buffer.safe_concat('
+');         index += 1  
+@output_buffer.safe_concat('      </p>
+');     end 
+@output_buffer.safe_concat('  </div>
+  <div class="actions">
+    ');@output_buffer.append= ( f.submit );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+'); end 
+@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /home/guayo/Desktop/prepanet/app/views/questions/_form.html.erb:41:in `compile'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:134:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:54:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:127:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/partials.rb:333:in `render_partial'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/partials.rb:262:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/partials.rb:260:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/partials.rb:378:in `_render_partial'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/rendering.rb:31:in `render'
+/home/guayo/Desktop/prepanet/app/views/questions/edit.html.erb:3:in `_app_views_questions_edit_html_erb___317733182_70028288972300_0'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:135:in `send'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:135:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:54:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:127:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/rendering.rb:59:in `_render_template'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/rendering.rb:56:in `_render_template'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/rendering.rb:26:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:115:in `_render_template'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:109:in `render_to_body'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:102:in `render_to_string'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:93:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/rendering.rb:17:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/base.rb:150:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/callbacks.rb:18:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:435:in `_run__16832433__process_action__1992409046__callbacks'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:409:in `send'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:93:in `send'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:93:in `run_callbacks'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/base.rb:119:in `process'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:41:in `process'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal.rb:138:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal.rb:178:in `action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:148:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:93:in `recognize'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:82:in `optimized_each'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:92:in `recognize'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:139:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/routing/route_set.rb:492:in `call'
+/usr/lib/ruby/gems/1.8/gems/warden-1.0.3/lib/warden/manager.rb:35:in `call'
+/usr/lib/ruby/gems/1.8/gems/warden-1.0.3/lib/warden/manager.rb:34:in `catch'
+/usr/lib/ruby/gems/1.8/gems/warden-1.0.3/lib/warden/manager.rb:34:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/head.rb:14:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/methodoverride.rb:24:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/cookies.rb:302:in `call'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/query_cache.rb:32:in `call'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/query_cache.rb:12:in `cache'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/query_cache.rb:31:in `call'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:354:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/sendfile.rb:107:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/rack/logger.rb:13:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/runtime.rb:17:in `call'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `synchronize'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/static.rb:30:in `call'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/application.rb:168:in `call'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/application.rb:77:in `send'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/application.rb:77:in `method_missing'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/rack/log_tailer.rb:14:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/content_length.rb:13:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/handler/webrick.rb:52:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/handler/webrick.rb:13:in `run'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/server.rb:213:in `start'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/commands/server.rb:65:in `start'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/commands.rb:30
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/commands.rb:27:in `tap'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/commands.rb:27
+script/rails:6:in `require'
+script/rails:6
+Rendered questions/_form.html.erb (1.6ms)
+Rendered questions/edit.html.erb within layouts/application (3.2ms)
+Completed   in 18ms
+
+ActionView::Template::Error (compile error
+/home/guayo/Desktop/prepanet/app/views/questions/_form.html.erb:29: syntax error, unexpected tSYMBEG, expecting kDO or '{' or '('
+...er.text_field :option, value:"#index", size:"2");@output_buf...
+                              ^
+/home/guayo/Desktop/prepanet/app/views/questions/_form.html.erb:29: syntax error, unexpected ',', expecting ')'
+...field :option, value:"#index", size:"2");@output_buffer.safe...
+                              ^):
+    26:         <%= builder.label :content, "Answer" %><br />
+    27:         <%= builder.text_field :content %>
+    28:         <%= builder.label :option, "Option" %>
+    29:         <%= builder.text_field :option, value:"#index", size:"2"%>
+    30:         <% index += 1 %> 
+    31:       </p>
+    32:     <% end %>
+  app/views/questions/_form.html.erb:41:in `compile'
+  app/views/questions/edit.html.erb:3:in `_app_views_questions_edit_html_erb___317733182_70028288972300_0'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (355.3ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (363.8ms)
+
+
+Started GET "/questions/1/edit" for 127.0.0.1 at Wed Mar 30 17:16:32 -0600 2011
+  Processing by QuestionsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mQuestion Load (0.2ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."id" = 1 LIMIT 1
+ERROR: compiling _app_views_questions__form_html_erb__601265306_70028289718600_878110 RAISED compile error
+/home/guayo/Desktop/prepanet/app/views/questions/_form.html.erb:29: syntax error, unexpected tSYMBEG, expecting kDO or '{' or '('
+...er.text_field :option, value:"#index", size:"2");@output_buf...
+                              ^
+/home/guayo/Desktop/prepanet/app/views/questions/_form.html.erb:29: syntax error, unexpected ',', expecting ')'
+...field :option, value:"#index", size:"2");@output_buffer.safe...
+                              ^
+Function body:           def _app_views_questions__form_html_erb__601265306_70028289718600_878110(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "questions/_form";_old_output_buffer = @output_buffer;form = local_assigns[:form];;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.append=  form_for(@question) do |f| @output_buffer.safe_concat('
+');   if @question.errors.any? 
+@output_buffer.safe_concat('    <div id="error_explanation">
+      <h2>');@output_buffer.append= ( pluralize(@question.errors.count, "error") );@output_buffer.safe_concat(' prohibited this question from being saved:</h2>
+
+      <ul>
+');@output_buffer.append_if_string=        @question.errors.full_messages.each do |msg| 
+@output_buffer.safe_concat('        <li>');@output_buffer.append= ( msg );@output_buffer.safe_concat('</li>
+');       end 
+@output_buffer.safe_concat('      </ul>
+    </div>
+');   end 
+@output_buffer.safe_concat('
+  <div class="field">
+    ');@output_buffer.append= ( f.label :content );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_area :content , :rows => 3);@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :correct_answer );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :correct_answer );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+');     index = 1  
+@output_buffer.safe_concat('    ');@output_buffer.append=  f.fields_for :answers do |builder| @output_buffer.safe_concat('
+');@output_buffer.safe_concat('      <p>
+        ');@output_buffer.append= ( builder.label :content, "Answer" );@output_buffer.safe_concat('<br />
+        ');@output_buffer.append= ( builder.text_field :content );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('        ');@output_buffer.append= ( builder.label :option, "Option" );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('        ');@output_buffer.append= ( builder.text_field :option, value:"#index", size:"2");@output_buffer.safe_concat('
+');         index += 1  
+@output_buffer.safe_concat('      </p>
+');     end 
+@output_buffer.safe_concat('  </div>
+  <div class="actions">
+    ');@output_buffer.append= ( f.submit );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+'); end 
+@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /home/guayo/Desktop/prepanet/app/views/questions/_form.html.erb:41:in `compile'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:134:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:54:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:127:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/partials.rb:333:in `render_partial'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/partials.rb:262:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/partials.rb:260:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/partials.rb:378:in `_render_partial'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/rendering.rb:31:in `render'
+/home/guayo/Desktop/prepanet/app/views/questions/edit.html.erb:3:in `_app_views_questions_edit_html_erb___317733182_70028289746440_0'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:135:in `send'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:135:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:54:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:127:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/rendering.rb:59:in `_render_template'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/rendering.rb:56:in `_render_template'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/rendering.rb:26:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:115:in `_render_template'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:109:in `render_to_body'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:102:in `render_to_string'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:93:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/rendering.rb:17:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/base.rb:150:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/callbacks.rb:18:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:435:in `_run__16832433__process_action__1992409046__callbacks'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:409:in `send'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:93:in `send'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:93:in `run_callbacks'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/base.rb:119:in `process'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:41:in `process'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal.rb:138:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal.rb:178:in `action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:148:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:93:in `recognize'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:82:in `optimized_each'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:92:in `recognize'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:139:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/routing/route_set.rb:492:in `call'
+/usr/lib/ruby/gems/1.8/gems/warden-1.0.3/lib/warden/manager.rb:35:in `call'
+/usr/lib/ruby/gems/1.8/gems/warden-1.0.3/lib/warden/manager.rb:34:in `catch'
+/usr/lib/ruby/gems/1.8/gems/warden-1.0.3/lib/warden/manager.rb:34:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/head.rb:14:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/methodoverride.rb:24:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/cookies.rb:302:in `call'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/query_cache.rb:32:in `call'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/query_cache.rb:12:in `cache'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/query_cache.rb:31:in `call'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:354:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/sendfile.rb:107:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/rack/logger.rb:13:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/runtime.rb:17:in `call'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `synchronize'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/static.rb:30:in `call'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/application.rb:168:in `call'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/application.rb:77:in `send'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/application.rb:77:in `method_missing'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/rack/log_tailer.rb:14:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/content_length.rb:13:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/handler/webrick.rb:52:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/handler/webrick.rb:13:in `run'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/server.rb:213:in `start'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/commands/server.rb:65:in `start'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/commands.rb:30
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/commands.rb:27:in `tap'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/commands.rb:27
+script/rails:6:in `require'
+script/rails:6
+Rendered questions/_form.html.erb (1.6ms)
+Rendered questions/edit.html.erb within layouts/application (3.3ms)
+Completed   in 19ms
+
+ActionView::Template::Error (compile error
+/home/guayo/Desktop/prepanet/app/views/questions/_form.html.erb:29: syntax error, unexpected tSYMBEG, expecting kDO or '{' or '('
+...er.text_field :option, value:"#index", size:"2");@output_buf...
+                              ^
+/home/guayo/Desktop/prepanet/app/views/questions/_form.html.erb:29: syntax error, unexpected ',', expecting ')'
+...field :option, value:"#index", size:"2");@output_buffer.safe...
+                              ^):
+    26:         <%= builder.label :content, "Answer" %><br />
+    27:         <%= builder.text_field :content %>
+    28:         <%= builder.label :option, "Option" %>
+    29:         <%= builder.text_field :option, value:"#index", size:"2"%>
+    30:         <% index += 1 %> 
+    31:       </p>
+    32:     <% end %>
+  app/views/questions/_form.html.erb:41:in `compile'
+  app/views/questions/edit.html.erb:3:in `_app_views_questions_edit_html_erb___317733182_70028289746440_0'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (347.6ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (354.6ms)
+
+
+Started GET "/questions/1/edit" for 127.0.0.1 at Wed Mar 30 17:16:44 -0600 2011
+  Processing by QuestionsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mQuestion Load (0.2ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."id" = 1 LIMIT 1[0m
+ERROR: compiling _app_views_questions__form_html_erb__601265306_70028289623980_878110 RAISED compile error
+/home/guayo/Desktop/prepanet/app/views/questions/_form.html.erb:29: syntax error, unexpected tSYMBEG, expecting kDO or '{' or '('
+...der.text_field :option, value:#index, size:"2");@output_buff...
+                              ^
+/home/guayo/Desktop/prepanet/app/views/questions/_form.html.erb:33: unknown regexp options - dv
+/home/guayo/Desktop/prepanet/app/views/questions/_form.html.erb:33: unmatched ): /p>
+');     end 
+@output_buffer.safe_concat('  </
+/home/guayo/Desktop/prepanet/app/views/questions/_form.html.erb:34: syntax error, unexpected '<'
+  <div class="actions">
+   ^
+/home/guayo/Desktop/prepanet/app/views/questions/_form.html.erb:36: unterminated string meets end of file
+/home/guayo/Desktop/prepanet/app/views/questions/_form.html.erb:36: syntax error, unexpected tSTRING_END, expecting tSTRING_CONTENT or tREGEXP_END or tSTRING_DBEG or tSTRING_DVAR
+Function body:           def _app_views_questions__form_html_erb__601265306_70028289623980_878110(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "questions/_form";_old_output_buffer = @output_buffer;form = local_assigns[:form];;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.append=  form_for(@question) do |f| @output_buffer.safe_concat('
+');   if @question.errors.any? 
+@output_buffer.safe_concat('    <div id="error_explanation">
+      <h2>');@output_buffer.append= ( pluralize(@question.errors.count, "error") );@output_buffer.safe_concat(' prohibited this question from being saved:</h2>
+
+      <ul>
+');@output_buffer.append_if_string=        @question.errors.full_messages.each do |msg| 
+@output_buffer.safe_concat('        <li>');@output_buffer.append= ( msg );@output_buffer.safe_concat('</li>
+');       end 
+@output_buffer.safe_concat('      </ul>
+    </div>
+');   end 
+@output_buffer.safe_concat('
+  <div class="field">
+    ');@output_buffer.append= ( f.label :content );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_area :content , :rows => 3);@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :correct_answer );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :correct_answer );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+');     index = 1  
+@output_buffer.safe_concat('    ');@output_buffer.append=  f.fields_for :answers do |builder| @output_buffer.safe_concat('
+');@output_buffer.safe_concat('      <p>
+        ');@output_buffer.append= ( builder.label :content, "Answer" );@output_buffer.safe_concat('<br />
+        ');@output_buffer.append= ( builder.text_field :content );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('        ');@output_buffer.append= ( builder.label :option, "Option" );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('        ');@output_buffer.append= ( builder.text_field :option, value:#index, size:"2");@output_buffer.safe_concat('
+');         index += 1  
+@output_buffer.safe_concat('      </p>
+');     end 
+@output_buffer.safe_concat('  </div>
+  <div class="actions">
+    ');@output_buffer.append= ( f.submit );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+'); end 
+@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /home/guayo/Desktop/prepanet/app/views/questions/_form.html.erb:36:in `compile'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:134:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:54:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:127:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/partials.rb:333:in `render_partial'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/partials.rb:262:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/partials.rb:260:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/partials.rb:378:in `_render_partial'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/rendering.rb:31:in `render'
+/home/guayo/Desktop/prepanet/app/views/questions/edit.html.erb:3:in `_app_views_questions_edit_html_erb___317733182_70028289677820_0'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:135:in `send'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:135:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:54:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:127:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/rendering.rb:59:in `_render_template'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/rendering.rb:56:in `_render_template'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/rendering.rb:26:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:115:in `_render_template'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:109:in `render_to_body'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:102:in `render_to_string'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:93:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/rendering.rb:17:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/base.rb:150:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/callbacks.rb:18:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:435:in `_run__16832433__process_action__1992409046__callbacks'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:409:in `send'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:93:in `send'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:93:in `run_callbacks'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/base.rb:119:in `process'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:41:in `process'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal.rb:138:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal.rb:178:in `action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:148:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:93:in `recognize'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:82:in `optimized_each'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:92:in `recognize'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:139:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/routing/route_set.rb:492:in `call'
+/usr/lib/ruby/gems/1.8/gems/warden-1.0.3/lib/warden/manager.rb:35:in `call'
+/usr/lib/ruby/gems/1.8/gems/warden-1.0.3/lib/warden/manager.rb:34:in `catch'
+/usr/lib/ruby/gems/1.8/gems/warden-1.0.3/lib/warden/manager.rb:34:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/head.rb:14:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/methodoverride.rb:24:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/cookies.rb:302:in `call'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/query_cache.rb:32:in `call'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/query_cache.rb:12:in `cache'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/query_cache.rb:31:in `call'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:354:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/sendfile.rb:107:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/rack/logger.rb:13:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/runtime.rb:17:in `call'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `synchronize'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/static.rb:30:in `call'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/application.rb:168:in `call'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/application.rb:77:in `send'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/application.rb:77:in `method_missing'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/rack/log_tailer.rb:14:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/content_length.rb:13:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/handler/webrick.rb:52:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/handler/webrick.rb:13:in `run'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/server.rb:213:in `start'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/commands/server.rb:65:in `start'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/commands.rb:30
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/commands.rb:27:in `tap'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/commands.rb:27
+script/rails:6:in `require'
+script/rails:6
+Rendered questions/_form.html.erb (1.6ms)
+Rendered questions/edit.html.erb within layouts/application (3.3ms)
+Completed   in 19ms
+
+ActionView::Template::Error (compile error
+/home/guayo/Desktop/prepanet/app/views/questions/_form.html.erb:29: syntax error, unexpected tSYMBEG, expecting kDO or '{' or '('
+...der.text_field :option, value:#index, size:"2");@output_buff...
+                              ^
+/home/guayo/Desktop/prepanet/app/views/questions/_form.html.erb:33: unknown regexp options - dv
+/home/guayo/Desktop/prepanet/app/views/questions/_form.html.erb:33: unmatched ): /p>
+');     end 
+@output_buffer.safe_concat('  </
+/home/guayo/Desktop/prepanet/app/views/questions/_form.html.erb:34: syntax error, unexpected '<'
+  <div class="actions">
+   ^
+/home/guayo/Desktop/prepanet/app/views/questions/_form.html.erb:36: unterminated string meets end of file
+/home/guayo/Desktop/prepanet/app/views/questions/_form.html.erb:36: syntax error, unexpected tSTRING_END, expecting tSTRING_CONTENT or tREGEXP_END or tSTRING_DBEG or tSTRING_DVAR):
+    26:         <%= builder.label :content, "Answer" %><br />
+    27:         <%= builder.text_field :content %>
+    28:         <%= builder.label :option, "Option" %>
+    29:         <%= builder.text_field :option, value:#index, size:"2"%>
+    30:         <% index += 1 %> 
+    31:       </p>
+    32:     <% end %>
+  app/views/questions/_form.html.erb:36:in `compile'
+  app/views/questions/edit.html.erb:3:in `_app_views_questions_edit_html_erb___317733182_70028289677820_0'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (351.4ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (358.8ms)
+
+
+Started GET "/questions/1/edit" for 127.0.0.1 at Wed Mar 30 17:17:24 -0600 2011
+  Processing by QuestionsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mQuestion Load (0.2ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."id" = 1 LIMIT 1
+ERROR: compiling _app_views_questions__form_html_erb__601265306_70028289555240_878110 RAISED compile error
+/home/guayo/Desktop/prepanet/app/views/questions/_form.html.erb:29: syntax error, unexpected tSYMBEG, expecting kDO or '{' or '('
+... :option, value=>index, size:"2");@output_buffer.safe_concat...
+                              ^
+Function body:           def _app_views_questions__form_html_erb__601265306_70028289555240_878110(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "questions/_form";_old_output_buffer = @output_buffer;form = local_assigns[:form];;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.append=  form_for(@question) do |f| @output_buffer.safe_concat('
+');   if @question.errors.any? 
+@output_buffer.safe_concat('    <div id="error_explanation">
+      <h2>');@output_buffer.append= ( pluralize(@question.errors.count, "error") );@output_buffer.safe_concat(' prohibited this question from being saved:</h2>
+
+      <ul>
+');@output_buffer.append_if_string=        @question.errors.full_messages.each do |msg| 
+@output_buffer.safe_concat('        <li>');@output_buffer.append= ( msg );@output_buffer.safe_concat('</li>
+');       end 
+@output_buffer.safe_concat('      </ul>
+    </div>
+');   end 
+@output_buffer.safe_concat('
+  <div class="field">
+    ');@output_buffer.append= ( f.label :content );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_area :content , :rows => 3);@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :correct_answer );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :correct_answer );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+');     index = 1  
+@output_buffer.safe_concat('    ');@output_buffer.append=  f.fields_for :answers do |builder| @output_buffer.safe_concat('
+');@output_buffer.safe_concat('      <p>
+        ');@output_buffer.append= ( builder.label :content, "Answer" );@output_buffer.safe_concat('<br />
+        ');@output_buffer.append= ( builder.text_field :content );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('        ');@output_buffer.append= ( builder.label :option, "Option" );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('        ');@output_buffer.append= ( builder.text_field :option, value=>index, size:"2");@output_buffer.safe_concat('
+');         index += 1  
+@output_buffer.safe_concat('      </p>
+');     end 
+@output_buffer.safe_concat('  </div>
+  <div class="actions">
+    ');@output_buffer.append= ( f.submit );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+'); end 
+@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /home/guayo/Desktop/prepanet/app/views/questions/_form.html.erb:41:in `compile'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:134:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:54:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:127:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/partials.rb:333:in `render_partial'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/partials.rb:262:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/partials.rb:260:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/partials.rb:378:in `_render_partial'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/rendering.rb:31:in `render'
+/home/guayo/Desktop/prepanet/app/views/questions/edit.html.erb:3:in `_app_views_questions_edit_html_erb___317733182_70028289602480_0'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:135:in `send'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:135:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:54:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:127:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/rendering.rb:59:in `_render_template'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/rendering.rb:56:in `_render_template'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/rendering.rb:26:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:115:in `_render_template'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:109:in `render_to_body'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:102:in `render_to_string'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:93:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/rendering.rb:17:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/base.rb:150:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/callbacks.rb:18:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:435:in `_run__16832433__process_action__1992409046__callbacks'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:409:in `send'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:93:in `send'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:93:in `run_callbacks'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/base.rb:119:in `process'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:41:in `process'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal.rb:138:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal.rb:178:in `action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:148:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:93:in `recognize'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:82:in `optimized_each'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:92:in `recognize'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:139:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/routing/route_set.rb:492:in `call'
+/usr/lib/ruby/gems/1.8/gems/warden-1.0.3/lib/warden/manager.rb:35:in `call'
+/usr/lib/ruby/gems/1.8/gems/warden-1.0.3/lib/warden/manager.rb:34:in `catch'
+/usr/lib/ruby/gems/1.8/gems/warden-1.0.3/lib/warden/manager.rb:34:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/head.rb:14:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/methodoverride.rb:24:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/cookies.rb:302:in `call'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/query_cache.rb:32:in `call'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/query_cache.rb:12:in `cache'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/query_cache.rb:31:in `call'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:354:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/sendfile.rb:107:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/rack/logger.rb:13:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/runtime.rb:17:in `call'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `synchronize'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/static.rb:30:in `call'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/application.rb:168:in `call'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/application.rb:77:in `send'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/application.rb:77:in `method_missing'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/rack/log_tailer.rb:14:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/content_length.rb:13:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/handler/webrick.rb:52:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/handler/webrick.rb:13:in `run'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/server.rb:213:in `start'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/commands/server.rb:65:in `start'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/commands.rb:30
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/commands.rb:27:in `tap'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/commands.rb:27
+script/rails:6:in `require'
+script/rails:6
+Rendered questions/_form.html.erb (1.6ms)
+Rendered questions/edit.html.erb within layouts/application (3.3ms)
+Completed   in 19ms
+
+ActionView::Template::Error (compile error
+/home/guayo/Desktop/prepanet/app/views/questions/_form.html.erb:29: syntax error, unexpected tSYMBEG, expecting kDO or '{' or '('
+... :option, value=>index, size:"2");@output_buffer.safe_concat...
+                              ^):
+    26:         <%= builder.label :content, "Answer" %><br />
+    27:         <%= builder.text_field :content %>
+    28:         <%= builder.label :option, "Option" %>
+    29:         <%= builder.text_field :option, value=>index, size:"2"%>
+    30:         <% index += 1 %> 
+    31:       </p>
+    32:     <% end %>
+  app/views/questions/_form.html.erb:41:in `compile'
+  app/views/questions/edit.html.erb:3:in `_app_views_questions_edit_html_erb___317733182_70028289602480_0'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (352.7ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (360.9ms)
+
+
+Started GET "/questions/1/edit" for 127.0.0.1 at Wed Mar 30 17:17:48 -0600 2011
+  Processing by QuestionsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mQuestion Load (0.3ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."id" = 1 LIMIT 1[0m
+ERROR: compiling _app_views_questions__form_html_erb__601265306_70028289670960_878110 RAISED compile error
+/home/guayo/Desktop/prepanet/app/views/questions/_form.html.erb:29: syntax error, unexpected tSYMBEG, expecting kDO or '{' or '('
+...er.text_field :option, value:"#{index}", size:"2");@output_b...
+                              ^
+/home/guayo/Desktop/prepanet/app/views/questions/_form.html.erb:29: syntax error, unexpected ',', expecting ')'
+...eld :option, value:"#{index}", size:"2");@output_buffer.safe...
+                              ^
+Function body:           def _app_views_questions__form_html_erb__601265306_70028289670960_878110(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "questions/_form";_old_output_buffer = @output_buffer;form = local_assigns[:form];;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.append=  form_for(@question) do |f| @output_buffer.safe_concat('
+');   if @question.errors.any? 
+@output_buffer.safe_concat('    <div id="error_explanation">
+      <h2>');@output_buffer.append= ( pluralize(@question.errors.count, "error") );@output_buffer.safe_concat(' prohibited this question from being saved:</h2>
+
+      <ul>
+');@output_buffer.append_if_string=        @question.errors.full_messages.each do |msg| 
+@output_buffer.safe_concat('        <li>');@output_buffer.append= ( msg );@output_buffer.safe_concat('</li>
+');       end 
+@output_buffer.safe_concat('      </ul>
+    </div>
+');   end 
+@output_buffer.safe_concat('
+  <div class="field">
+    ');@output_buffer.append= ( f.label :content );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_area :content , :rows => 3);@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :correct_answer );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :correct_answer );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+');     index = 1  
+@output_buffer.safe_concat('    ');@output_buffer.append=  f.fields_for :answers do |builder| @output_buffer.safe_concat('
+');@output_buffer.safe_concat('      <p>
+        ');@output_buffer.append= ( builder.label :content, "Answer" );@output_buffer.safe_concat('<br />
+        ');@output_buffer.append= ( builder.text_field :content );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('        ');@output_buffer.append= ( builder.label :option, "Option" );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('        ');@output_buffer.append= ( builder.text_field :option, value:"#{index}", size:"2");@output_buffer.safe_concat('
+');         index += 1  
+@output_buffer.safe_concat('      </p>
+');     end 
+@output_buffer.safe_concat('  </div>
+  <div class="actions">
+    ');@output_buffer.append= ( f.submit );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+'); end 
+@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /home/guayo/Desktop/prepanet/app/views/questions/_form.html.erb:41:in `compile'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:134:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:54:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:127:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/partials.rb:333:in `render_partial'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/partials.rb:262:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/partials.rb:260:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/partials.rb:378:in `_render_partial'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/rendering.rb:31:in `render'
+/home/guayo/Desktop/prepanet/app/views/questions/edit.html.erb:3:in `_app_views_questions_edit_html_erb___317733182_70028289686720_0'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:135:in `send'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:135:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:54:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:127:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/rendering.rb:59:in `_render_template'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/rendering.rb:56:in `_render_template'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/rendering.rb:26:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:115:in `_render_template'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:109:in `render_to_body'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:102:in `render_to_string'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:93:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/rendering.rb:17:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/base.rb:150:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/callbacks.rb:18:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:435:in `_run__16832433__process_action__1992409046__callbacks'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:409:in `send'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:93:in `send'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:93:in `run_callbacks'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/base.rb:119:in `process'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:41:in `process'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal.rb:138:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal.rb:178:in `action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:148:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:93:in `recognize'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:82:in `optimized_each'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:92:in `recognize'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:139:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/routing/route_set.rb:492:in `call'
+/usr/lib/ruby/gems/1.8/gems/warden-1.0.3/lib/warden/manager.rb:35:in `call'
+/usr/lib/ruby/gems/1.8/gems/warden-1.0.3/lib/warden/manager.rb:34:in `catch'
+/usr/lib/ruby/gems/1.8/gems/warden-1.0.3/lib/warden/manager.rb:34:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/head.rb:14:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/methodoverride.rb:24:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/cookies.rb:302:in `call'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/query_cache.rb:32:in `call'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/query_cache.rb:12:in `cache'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/query_cache.rb:31:in `call'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:354:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/sendfile.rb:107:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/rack/logger.rb:13:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/runtime.rb:17:in `call'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `synchronize'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/static.rb:30:in `call'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/application.rb:168:in `call'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/application.rb:77:in `send'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/application.rb:77:in `method_missing'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/rack/log_tailer.rb:14:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/content_length.rb:13:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/handler/webrick.rb:52:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/handler/webrick.rb:13:in `run'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/server.rb:213:in `start'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/commands/server.rb:65:in `start'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/commands.rb:30
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/commands.rb:27:in `tap'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/commands.rb:27
+script/rails:6:in `require'
+script/rails:6
+Rendered questions/_form.html.erb (1.7ms)
+Rendered questions/edit.html.erb within layouts/application (3.4ms)
+Completed   in 20ms
+
+ActionView::Template::Error (compile error
+/home/guayo/Desktop/prepanet/app/views/questions/_form.html.erb:29: syntax error, unexpected tSYMBEG, expecting kDO or '{' or '('
+...er.text_field :option, value:"#{index}", size:"2");@output_b...
+                              ^
+/home/guayo/Desktop/prepanet/app/views/questions/_form.html.erb:29: syntax error, unexpected ',', expecting ')'
+...eld :option, value:"#{index}", size:"2");@output_buffer.safe...
+                              ^):
+    26:         <%= builder.label :content, "Answer" %><br />
+    27:         <%= builder.text_field :content %>
+    28:         <%= builder.label :option, "Option" %>
+    29:         <%= builder.text_field :option, value:"#{index}", size:"2"%>
+    30:         <% index += 1 %> 
+    31:       </p>
+    32:     <% end %>
+  app/views/questions/_form.html.erb:41:in `compile'
+  app/views/questions/edit.html.erb:3:in `_app_views_questions_edit_html_erb___317733182_70028289686720_0'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (348.4ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (355.5ms)
