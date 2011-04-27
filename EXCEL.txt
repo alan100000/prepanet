@@ -1,0 +1,8 @@
+1. Agregar lo siguiente al controlador, en el modulo a excelear.
+Ahorita solo esta en los index.
+format.xls { send_data @xxx.to_xls }
+format.csv { send_data @xxx.to_csv }
+
+2. Ahorita solo esta en areas, courses y majors.
+
+

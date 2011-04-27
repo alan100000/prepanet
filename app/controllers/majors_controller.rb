@@ -8,6 +8,8 @@ load_and_authorize_resource
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @majors }
+      format.xls { send_data @majors.to_xls }
+      format.csv { send_data @majors.to_csv }
     end
   end
 
