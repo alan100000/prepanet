@@ -48,10 +48,7 @@ load_and_authorize_resource
     areastring = params[:area]
     
     a=Area.where(:nombre => areastring)
-    a.each do |n|
-        puts n.id
-        @course.area_id=n.id
-    end
+        @course.area_id=a[0].id
 
     respond_to do |format|
       if @course.save

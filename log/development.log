@@ -4595,3 +4595,1654 @@ ActionView::Template::Error (compile error
 Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
 Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (348.4ms)
 Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (355.5ms)
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.3ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (118.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (85.3ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.4ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+Migrating to DeviseCreateUsers (20110218000519)
+  [1m[36mSQL (0.5ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "password_salt" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "remember_token" varchar(255), "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (13.7ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+  [1m[35mSQL (0.2ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110218000519')[0m
+Migrating to AddNameToUser (20110223043651)
+  [1m[35mSQL (0.8ms)[0m  ALTER TABLE "users" ADD "nombre" varchar(255)
+  [1m[36mSQL (0.4ms)[0m  [1mALTER TABLE "users" ADD "apellido_paterno" varchar(255)[0m
+  [1m[35mSQL (0.5ms)[0m  ALTER TABLE "users" ADD "apellido_materno" varchar(255)
+  [1m[36mSQL (0.2ms)[0m  [1mALTER TABLE "users" ADD "sexo" varchar(255)[0m
+  [1m[35mSQL (0.2ms)[0m  ALTER TABLE "users" ADD "matricula" varchar(255)
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110223043651')[0m
+Migrating to AddCosasToUser (20110223071023)
+  [1m[35mSQL (0.8ms)[0m  ALTER TABLE "users" ADD "telefono_particular" varchar(255)
+  [1m[36mSQL (0.5ms)[0m  [1mALTER TABLE "users" ADD "telefono_celular" varchar(255)[0m
+  [1m[35mSQL (0.5ms)[0m  ALTER TABLE "users" ADD "email_personal" varchar(255)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110223071023')[0m
+Migrating to CreateMajors (20110223072250)
+  [1m[35mSQL (0.5ms)[0m  CREATE TABLE "majors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255), "sigla" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110223072250')[0m
+Migrating to AddMasCosasToUser (20110223074405)
+  [1m[35mSQL (0.5ms)[0m  ALTER TABLE "users" ADD "promedio_global_acumulado" integer
+  [1m[36mSQL (0.2ms)[0m  [1mALTER TABLE "users" ADD "promedio_del_semestre_anterior" integer[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110223074405')
+Migrating to AddSeguroToUser (20110223155712)
+  [1m[36mSQL (0.7ms)[0m  [1mALTER TABLE "users" ADD "nombre_del_seguro" varchar(255)[0m
+  [1m[35mSQL (0.3ms)[0m  ALTER TABLE "users" ADD "compania" varchar(255)
+  [1m[36mSQL (0.2ms)[0m  [1mALTER TABLE "users" ADD "numero_de_poliza" varchar(255)[0m
+  [1m[35mSQL (0.3ms)[0m  ALTER TABLE "users" ADD "fecha_de_vencimiento" date
+  [1m[36mSQL (0.3ms)[0m  [1mALTER TABLE "users" ADD "contacto_emergencia" varchar(255)[0m
+  [1m[35mSQL (0.3ms)[0m  ALTER TABLE "users" ADD "parentesco" varchar(255)
+  [1m[36mSQL (0.3ms)[0m  [1mALTER TABLE "users" ADD "telefono_emergencia" varchar(255)[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110223155712')
+Migrating to CreateAreas (20110224001428)
+  [1m[36mSQL (0.6ms)[0m  [1mCREATE TABLE "areas" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110224001428')
+Migrating to CreateCourses (20110224001544)
+  [1m[36mSQL (0.6ms)[0m  [1mCREATE TABLE "courses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110224001544')
+Migrating to AddCarreraToUser (20110314003005)
+  [1m[36mSQL (0.5ms)[0m  [1mALTER TABLE "users" ADD "major_id" integer[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110314003005')
+Migrating to AddAreaToCourse (20110314012505)
+  [1m[36mSQL (0.6ms)[0m  [1mALTER TABLE "courses" ADD "area_id" integer[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110314012505')
+Migrating to AddAdminToUser (20110314015437)
+  [1m[36mSQL (0.5ms)[0m  [1mALTER TABLE "users" ADD "admin" boolean[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110314015437')
+Migrating to AddNuevoToUser (20110314095700)
+  [1m[36mSQL (0.6ms)[0m  [1mALTER TABLE "users" ADD "semestre" integer[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110314095700')
+Migrating to CreateQuestions (20110318012233)
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" text, "correct_answer" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110318012233')
+Migrating to CreateAnswers (20110318012554)
+  [1m[36mSQL (0.6ms)[0m  [1mCREATE TABLE "answers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "question_id" integer, "content" varchar(255), "option" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110318012554')
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("answers")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("areas")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("courses")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("majors")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("questions")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_users_on_reset_password_token')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+
+
+Started GET "/" for 127.0.0.1 at Wed Apr 27 18:53:13 -0500 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (151.3ms)
+Completed 200 OK in 179ms (Views: 178.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Wed Apr 27 18:53:18 -0500 2011
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.5ms)
+Rendered devise/sessions/new.html.erb within layouts/application (33.4ms)
+Completed 200 OK in 92ms (Views: 50.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/images/abajoRedondo.png" for 127.0.0.1 at Wed Apr 27 18:53:18 -0500 2011
+
+ActionController::RoutingError (No route matches "/users/images/abajoRedondo.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/users/images/favicon.png" for 127.0.0.1 at Wed Apr 27 18:53:18 -0500 2011
+
+ActionController::RoutingError (No route matches "/users/images/favicon.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/users/images/favicon.png" for 127.0.0.1 at Wed Apr 27 18:53:21 -0500 2011
+
+ActionController::RoutingError (No route matches "/users/images/favicon.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at Wed Apr 27 18:53:21 -0500 2011
+  Processing by RegistrationsController#new as HTML
+Rendered devise/shared/_links.erb (1.5ms)
+Rendered registrations/new.html.erb within layouts/application (132.3ms)
+Completed 200 OK in 183ms (Views: 159.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/images/abajoRedondo.png" for 127.0.0.1 at Wed Apr 27 18:53:22 -0500 2011
+
+ActionController::RoutingError (No route matches "/users/images/abajoRedondo.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/materias/new" for 127.0.0.1 at Wed Apr 27 18:53:55 -0500 2011
+
+ActionController::RoutingError (No route matches "/materias/new"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at Wed Apr 27 18:54:18 -0500 2011
+  Processing by CoursesController#new as HTML
+Completed   in 151ms
+Redirected to http://localhost:3000/
+
+
+Started GET "/" for 127.0.0.1 at Wed Apr 27 18:54:18 -0500 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (56.1ms)
+Completed 200 OK in 64ms (Views: 63.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Wed Apr 27 18:54:22 -0500 2011
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.4ms)
+Rendered devise/sessions/new.html.erb within layouts/application (100.4ms)
+Completed 200 OK in 147ms (Views: 108.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/images/abajoRedondo.png" for 127.0.0.1 at Wed Apr 27 18:54:23 -0500 2011
+
+ActionController::RoutingError (No route matches "/users/images/abajoRedondo.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at Wed Apr 27 18:55:15 -0500 2011
+  Processing by RegistrationsController#new as HTML
+Rendered devise/shared/_links.erb (1.6ms)
+Rendered registrations/new.html.erb within layouts/application (56.1ms)
+Completed 200 OK in 174ms (Views: 68.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/images/abajoRedondo.png" for 127.0.0.1 at Wed Apr 27 18:55:15 -0500 2011
+
+ActionController::RoutingError (No route matches "/users/images/abajoRedondo.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at Wed Apr 27 18:55:29 -0500 2011
+  Processing by RegistrationsController#create as HTML
+  Parameters: {"commit"=>"Registrarse", "fecha_de_vencimiento"=>{"last_follow_up_at"=>""}, "authenticity_token"=>"9nVUtJ5s0TxYwAxcsZNlZ2BIufSZxiP1dD60FRaHBDk=", "utf8"=>"✓", "semestre"=>"1", "user"=>{"telefono_particular"=>"", "nombre"=>"Master", "promedio_del_semestre_anterior"=>"", "compania"=>"", "telefono_emergencia"=>"", "password_confirmation"=>"[FILTERED]", "email_personal"=>"", "apellido_materno"=>"Master", "promedio_global_acumulado"=>"", "parentesco"=>"", "contacto_emergencia"=>"", "apellido_paterno"=>"Master", "password"=>"[FILTERED]", "telefono_celular"=>"", "nombre_del_seguro"=>"", "matricula"=>"A11111111", "email"=>"", "numero_de_poliza"=>""}}
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email_personal" = '') LIMIT 1
+Rendered devise/shared/_links.erb (1.6ms)
+Rendered registrations/new.html.erb within layouts/application (133.1ms)
+Completed 200 OK in 288ms (Views: 144.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users" for 127.0.0.1 at Wed Apr 27 18:56:13 -0500 2011
+  Processing by RegistrationsController#create as HTML
+  Parameters: {"commit"=>"Registrarse", "fecha_de_vencimiento"=>{"last_follow_up_at"=>"April 22, 2011"}, "authenticity_token"=>"9nVUtJ5s0TxYwAxcsZNlZ2BIufSZxiP1dD60FRaHBDk=", "utf8"=>"✓", "semestre"=>"3", "user"=>{"telefono_particular"=>"1", "nombre"=>"Master", "promedio_del_semestre_anterior"=>"1", "compania"=>"1", "telefono_emergencia"=>"1", "password_confirmation"=>"[FILTERED]", "email_personal"=>"master@master.com", "apellido_materno"=>"Master", "promedio_global_acumulado"=>"1", "parentesco"=>"1", "contacto_emergencia"=>"1", "apellido_paterno"=>"Master", "sexo"=>"Hombre", "password"=>"[FILTERED]", "telefono_celular"=>"1", "nombre_del_seguro"=>"1", "matricula"=>"A11111111", "email"=>"master@master.com", "numero_de_poliza"=>"1"}}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('master@master.com')) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email_personal" = 'master@master.com') LIMIT 1
+  [1m[36mAREL (0.5ms)[0m  [1mINSERT INTO "users" ("email", "numero_de_poliza", "remember_token", "password_salt", "email_personal", "compania", "major_id", "remember_created_at", "semestre", "reset_password_token", "contacto_emergencia", "nombre_del_seguro", "last_sign_in_ip", "nombre", "fecha_de_vencimiento", "created_at", "current_sign_in_at", "sign_in_count", "updated_at", "promedio_del_semestre_anterior", "sexo", "telefono_celular", "admin", "apellido_paterno", "promedio_global_acumulado", "current_sign_in_ip", "last_sign_in_at", "matricula", "parentesco", "telefono_emergencia", "encrypted_password", "apellido_materno", "telefono_particular") VALUES ('master@master.com', '1', NULL, '$2a$10$1aUn9gP/.e7eRThgfnQFZe', 'master@master.com', '1', NULL, NULL, 3, NULL, '1', '1', NULL, 'Master', NULL, '2011-04-27 23:56:13.386570', NULL, 0, '2011-04-27 23:56:13.386570', 1, 'Hombre', '1', NULL, 'Master', 1, NULL, NULL, 'A11111111', '1', '1', '$2a$10$1aUn9gP/.e7eRThgfnQFZeET04xTM/QnbbYOfkh1Bg4Awd8aP2vDW', 'Master', '1')[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 437ms
+
+
+Started GET "/" for 127.0.0.1 at Wed Apr 27 18:56:13 -0500 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (129.9ms)
+Completed 200 OK in 150ms (Views: 149.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Wed Apr 27 18:56:44 -0500 2011
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.4ms)
+Rendered devise/sessions/new.html.erb within layouts/application (113.4ms)
+Completed 200 OK in 161ms (Views: 121.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/images/abajoRedondo.png" for 127.0.0.1 at Wed Apr 27 18:56:45 -0500 2011
+
+ActionController::RoutingError (No route matches "/users/images/abajoRedondo.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at Wed Apr 27 18:56:52 -0500 2011
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Entrar", "authenticity_token"=>"9nVUtJ5s0TxYwAxcsZNlZ2BIufSZxiP1dD60FRaHBDk=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"A11111111"}}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'A11111111' LIMIT 1
+Completed   in 173ms
+  Processing by Devise::SessionsController#new as HTML
+  Parameters: {"commit"=>"Entrar", "authenticity_token"=>"9nVUtJ5s0TxYwAxcsZNlZ2BIufSZxiP1dD60FRaHBDk=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"A11111111"}}
+WARNING: Can't mass-assign protected attributes: remember_me
+Rendered devise/shared/_links.erb (1.5ms)
+Rendered devise/sessions/new.html.erb within layouts/application (23.3ms)
+Completed 200 OK in 164ms (Views: 31.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/images/abajoRedondo.png" for 127.0.0.1 at Wed Apr 27 18:56:53 -0500 2011
+
+ActionController::RoutingError (No route matches "/users/images/abajoRedondo.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at Wed Apr 27 18:57:00 -0500 2011
+  Processing by CoursesController#new as HTML
+Completed   in 58ms
+Redirected to http://localhost:3000/
+
+
+Started GET "/" for 127.0.0.1 at Wed Apr 27 18:57:00 -0500 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (136.3ms)
+Completed 200 OK in 144ms (Views: 143.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Wed Apr 27 18:57:06 -0500 2011
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.6ms)
+Rendered devise/sessions/new.html.erb within layouts/application (24.2ms)
+Completed 200 OK in 161ms (Views: 32.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/images/abajoRedondo.png" for 127.0.0.1 at Wed Apr 27 18:57:06 -0500 2011
+
+ActionController::RoutingError (No route matches "/users/images/abajoRedondo.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/users/images/abajoRedondo.png" for 127.0.0.1 at Wed Apr 27 18:57:06 -0500 2011
+
+ActionController::RoutingError (No route matches "/users/images/abajoRedondo.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at Wed Apr 27 18:57:18 -0500 2011
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Entrar", "authenticity_token"=>"9nVUtJ5s0TxYwAxcsZNlZ2BIufSZxiP1dD60FRaHBDk=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"Master@master.com"}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'Master@master.com' LIMIT 1[0m
+Completed   in 32ms
+  Processing by Devise::SessionsController#new as HTML
+  Parameters: {"commit"=>"Entrar", "authenticity_token"=>"9nVUtJ5s0TxYwAxcsZNlZ2BIufSZxiP1dD60FRaHBDk=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"Master@master.com"}}
+WARNING: Can't mass-assign protected attributes: remember_me
+Rendered devise/shared/_links.erb (1.4ms)
+Rendered devise/sessions/new.html.erb within layouts/application (22.1ms)
+Completed 200 OK in 160ms (Views: 30.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/images/abajoRedondo.png" for 127.0.0.1 at Wed Apr 27 18:57:19 -0500 2011
+
+ActionController::RoutingError (No route matches "/users/images/abajoRedondo.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at Wed Apr 27 18:57:39 -0500 2011
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Entrar", "authenticity_token"=>"9nVUtJ5s0TxYwAxcsZNlZ2BIufSZxiP1dD60FRaHBDk=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"master@master.com"}}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'master@master.com' LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "users" SET "current_sign_in_ip" = '127.0.0.1', "current_sign_in_at" = '2011-04-27 23:57:39.388661', "last_sign_in_at" = '2011-04-27 23:57:39.388661', "sign_in_count" = 1, "last_sign_in_ip" = '127.0.0.1', "updated_at" = '2011-04-27 23:57:39.389423' WHERE "users"."id" = 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 303ms
+
+
+Started GET "/" for 127.0.0.1 at Wed Apr 27 18:57:39 -0500 2011
+  Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered home/index.html.erb within layouts/application (149.0ms)
+Completed 200 OK in 157ms (Views: 155.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at Wed Apr 27 18:57:45 -0500 2011
+  Processing by CoursesController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mArea Load (0.2ms)[0m  SELECT "areas".* FROM "areas" ORDER BY nombre
+Rendered courses/_form.html.erb (25.0ms)
+Rendered courses/new.html.erb within layouts/application (39.7ms)
+Completed 200 OK in 123ms (Views: 63.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/courses/images/abajoRedondo.png" for 127.0.0.1 at Wed Apr 27 18:57:45 -0500 2011
+
+ActionController::RoutingError (No route matches "/courses/images/abajoRedondo.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/courses/images/favicon.png" for 127.0.0.1 at Wed Apr 27 18:57:46 -0500 2011
+
+ActionController::RoutingError (No route matches "/courses/images/favicon.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/courses/images/favicon.png" for 127.0.0.1 at Wed Apr 27 18:57:49 -0500 2011
+
+ActionController::RoutingError (No route matches "/courses/images/favicon.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/areas/new" for 127.0.0.1 at Wed Apr 27 19:01:58 -0500 2011
+  Processing by AreasController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered areas/_form.html.erb (6.9ms)
+Rendered areas/new.html.erb within layouts/application (25.4ms)
+Completed 200 OK in 103ms (Views: 47.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/areas/images/abajoRedondo.png" for 127.0.0.1 at Wed Apr 27 19:01:59 -0500 2011
+
+ActionController::RoutingError (No route matches "/areas/images/abajoRedondo.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/areas/images/abajoRedondo.png" for 127.0.0.1 at Wed Apr 27 19:01:59 -0500 2011
+
+ActionController::RoutingError (No route matches "/areas/images/abajoRedondo.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/areas/images/favicon.png" for 127.0.0.1 at Wed Apr 27 19:01:59 -0500 2011
+
+ActionController::RoutingError (No route matches "/areas/images/favicon.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/areas/images/favicon.png" for 127.0.0.1 at Wed Apr 27 19:01:59 -0500 2011
+
+ActionController::RoutingError (No route matches "/areas/images/favicon.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/areas/images/favicon.png" for 127.0.0.1 at Wed Apr 27 19:02:02 -0500 2011
+
+ActionController::RoutingError (No route matches "/areas/images/favicon.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started POST "/areas" for 127.0.0.1 at Wed Apr 27 19:03:52 -0500 2011
+  Processing by AreasController#create as HTML
+  Parameters: {"commit"=>"Create Area", "authenticity_token"=>"9nVUtJ5s0TxYwAxcsZNlZ2BIufSZxiP1dD60FRaHBDk=", "utf8"=>"✓", "area"=>{"nombre"=>"Probando"}}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "areas" ("created_at", "updated_at", "nombre") VALUES ('2011-04-28 00:03:52.838658', '2011-04-28 00:03:52.838658', 'Probando')[0m
+Redirected to http://localhost:3000/areas/1
+Completed 302 Found in 237ms
+
+
+Started GET "/areas/1" for 127.0.0.1 at Wed Apr 27 19:03:52 -0500 2011
+  Processing by AreasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mArea Load (0.2ms)[0m  SELECT "areas".* FROM "areas" WHERE "areas"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "areas".* FROM "areas" WHERE "areas"."id" = 1 LIMIT 1
+Rendered areas/show.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 95ms (Views: 39.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/areas/images/abajoRedondo.png" for 127.0.0.1 at Wed Apr 27 19:03:53 -0500 2011
+
+ActionController::RoutingError (No route matches "/areas/images/abajoRedondo.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/areas" for 127.0.0.1 at Wed Apr 27 19:03:55 -0500 2011
+  Processing by AreasController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mArea Load (0.2ms)[0m  SELECT "areas".* FROM "areas"
+Rendered areas/index.html.erb within layouts/application (96.9ms)
+Completed 200 OK in 173ms (Views: 116.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/areas/new" for 127.0.0.1 at Wed Apr 27 19:03:57 -0500 2011
+  Processing by AreasController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered areas/_form.html.erb (6.3ms)
+Rendered areas/new.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 159ms (Views: 27.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/areas/images/abajoRedondo.png" for 127.0.0.1 at Wed Apr 27 19:03:57 -0500 2011
+
+ActionController::RoutingError (No route matches "/areas/images/abajoRedondo.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started POST "/areas" for 127.0.0.1 at Wed Apr 27 19:04:02 -0500 2011
+  Processing by AreasController#create as HTML
+  Parameters: {"commit"=>"Create Area", "authenticity_token"=>"9nVUtJ5s0TxYwAxcsZNlZ2BIufSZxiP1dD60FRaHBDk=", "utf8"=>"✓", "area"=>{"nombre"=>"Prueba"}}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "areas" ("nombre", "updated_at", "created_at") VALUES ('Prueba', '2011-04-28 00:04:02.232570', '2011-04-28 00:04:02.232570')[0m
+Redirected to http://localhost:3000/areas/2
+Completed 302 Found in 241ms
+
+
+Started GET "/areas/2" for 127.0.0.1 at Wed Apr 27 19:04:02 -0500 2011
+  Processing by AreasController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mArea Load (0.2ms)[0m  SELECT "areas".* FROM "areas" WHERE "areas"."id" = 2 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "areas".* FROM "areas" WHERE "areas"."id" = 2 LIMIT 1
+Rendered areas/show.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 73ms (Views: 16.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/areas/images/abajoRedondo.png" for 127.0.0.1 at Wed Apr 27 19:04:02 -0500 2011
+
+ActionController::RoutingError (No route matches "/areas/images/abajoRedondo.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/areas" for 127.0.0.1 at Wed Apr 27 19:04:03 -0500 2011
+  Processing by AreasController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mArea Load (0.3ms)[0m  SELECT "areas".* FROM "areas"
+Rendered areas/index.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 76ms (Views: 19.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/areas/new" for 127.0.0.1 at Wed Apr 27 19:04:07 -0500 2011
+  Processing by AreasController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered areas/_form.html.erb (5.8ms)
+Rendered areas/new.html.erb within layouts/application (95.6ms)
+Completed 200 OK in 160ms (Views: 102.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/areas/images/abajoRedondo.png" for 127.0.0.1 at Wed Apr 27 19:04:07 -0500 2011
+
+ActionController::RoutingError (No route matches "/areas/images/abajoRedondo.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started POST "/areas" for 127.0.0.1 at Wed Apr 27 19:04:09 -0500 2011
+  Processing by AreasController#create as HTML
+  Parameters: {"commit"=>"Create Area", "authenticity_token"=>"9nVUtJ5s0TxYwAxcsZNlZ2BIufSZxiP1dD60FRaHBDk=", "utf8"=>"✓", "area"=>{"nombre"=>"Y asi"}}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "areas" ("updated_at", "created_at", "nombre") VALUES ('2011-04-28 00:04:09.911705', '2011-04-28 00:04:09.911705', 'Y asi')[0m
+Redirected to http://localhost:3000/areas/3
+Completed 302 Found in 220ms
+
+
+Started GET "/areas/3" for 127.0.0.1 at Wed Apr 27 19:04:09 -0500 2011
+  Processing by AreasController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mArea Load (0.2ms)[0m  SELECT "areas".* FROM "areas" WHERE "areas"."id" = 3 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "areas".* FROM "areas" WHERE "areas"."id" = 3 LIMIT 1
+Rendered areas/show.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 74ms (Views: 15.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/areas/images/abajoRedondo.png" for 127.0.0.1 at Wed Apr 27 19:04:10 -0500 2011
+
+ActionController::RoutingError (No route matches "/areas/images/abajoRedondo.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/areas" for 127.0.0.1 at Wed Apr 27 19:04:11 -0500 2011
+  Processing by AreasController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mArea Load (0.3ms)[0m  SELECT "areas".* FROM "areas"
+Rendered areas/index.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 78ms (Views: 20.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at Wed Apr 27 19:04:16 -0500 2011
+  Processing by CoursesController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mArea Load (0.4ms)[0m  SELECT "areas".* FROM "areas" ORDER BY nombre
+Rendered courses/_form.html.erb (105.5ms)
+Rendered courses/new.html.erb within layouts/application (112.8ms)
+Completed 200 OK in 178ms (Views: 119.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/courses/images/abajoRedondo.png" for 127.0.0.1 at Wed Apr 27 19:04:16 -0500 2011
+
+ActionController::RoutingError (No route matches "/courses/images/abajoRedondo.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/courses/images/abajoRedondo.png" for 127.0.0.1 at Wed Apr 27 19:04:16 -0500 2011
+
+ActionController::RoutingError (No route matches "/courses/images/abajoRedondo.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started POST "/courses" for 127.0.0.1 at Wed Apr 27 19:04:26 -0500 2011
+  Processing by CoursesController#create as HTML
+  Parameters: {"course"=>{"nombre"=>"Curso 1"}, "commit"=>"Create Course", "authenticity_token"=>"9nVUtJ5s0TxYwAxcsZNlZ2BIufSZxiP1dD60FRaHBDk=", "utf8"=>"✓", "area"=>"Y asi"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mArea Load (0.2ms)[0m  SELECT "areas".* FROM "areas" WHERE "areas"."nombre" = 'Y asi'
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "courses" ("updated_at", "nombre", "area_id", "created_at") VALUES ('2011-04-28 00:04:26.673598', 'Curso 1', 3, '2011-04-28 00:04:26.673598')[0m
+Redirected to http://localhost:3000/courses/1
+Completed 302 Found in 253ms
+
+
+Started GET "/courses/1" for 127.0.0.1 at Wed Apr 27 19:04:26 -0500 2011
+  Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1
+Rendered courses/show.html.erb within layouts/application (104.5ms)
+Completed 200 OK in 184ms (Views: 127.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/courses/images/abajoRedondo.png" for 127.0.0.1 at Wed Apr 27 19:04:27 -0500 2011
+
+ActionController::RoutingError (No route matches "/courses/images/abajoRedondo.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/courses" for 127.0.0.1 at Wed Apr 27 19:04:29 -0500 2011
+  Processing by CoursesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses"
+Rendered courses/index.html.erb within layouts/application (21.3ms)
+Completed 200 OK in 183ms (Views: 30.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at Wed Apr 27 19:10:53 -0500 2011
+  Processing by CoursesController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mArea Load (0.3ms)[0m  SELECT "areas".* FROM "areas" ORDER BY nombre
+Rendered courses/_form.html.erb (20.9ms)
+Rendered courses/new.html.erb within layouts/application (29.2ms)
+Completed 200 OK in 176ms (Views: 36.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/courses/images/abajoRedondo.png" for 127.0.0.1 at Wed Apr 27 19:10:53 -0500 2011
+
+ActionController::RoutingError (No route matches "/courses/images/abajoRedondo.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started POST "/courses" for 127.0.0.1 at Wed Apr 27 19:11:00 -0500 2011
+  Processing by CoursesController#create as HTML
+  Parameters: {"course"=>{"nombre"=>"Pruebas 2 y asi"}, "commit"=>"Create Course", "authenticity_token"=>"9nVUtJ5s0TxYwAxcsZNlZ2BIufSZxiP1dD60FRaHBDk=", "utf8"=>"✓", "area"=>"Probando"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "courses" ("nombre", "area_id", "updated_at", "created_at") VALUES ('Pruebas 2 y asi', 70136958368760, '2011-04-28 00:11:00.770697', '2011-04-28 00:11:00.770697')
+Redirected to http://localhost:3000/courses/2
+Completed 302 Found in 188ms
+
+
+Started GET "/courses/2" for 127.0.0.1 at Wed Apr 27 19:11:00 -0500 2011
+  Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 2 LIMIT 1[0m
+Rendered courses/show.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 86ms (Views: 25.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/courses/images/abajoRedondo.png" for 127.0.0.1 at Wed Apr 27 19:11:01 -0500 2011
+
+ActionController::RoutingError (No route matches "/courses/images/abajoRedondo.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/courses" for 127.0.0.1 at Wed Apr 27 19:11:03 -0500 2011
+  Processing by CoursesController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT "courses".* FROM "courses"[0m
+Rendered courses/index.html.erb within layouts/application (19.6ms)
+Completed 200 OK in 85ms (Views: 27.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at Wed Apr 27 19:12:24 -0500 2011
+  Processing by CoursesController#new as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mArea Load (0.4ms)[0m  [1mSELECT "areas".* FROM "areas" ORDER BY nombre[0m
+Rendered courses/_form.html.erb (111.0ms)
+Rendered courses/new.html.erb within layouts/application (118.3ms)
+Completed 200 OK in 187ms (Views: 125.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/courses/images/abajoRedondo.png" for 127.0.0.1 at Wed Apr 27 19:12:24 -0500 2011
+
+ActionController::RoutingError (No route matches "/courses/images/abajoRedondo.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started POST "/courses" for 127.0.0.1 at Wed Apr 27 19:12:28 -0500 2011
+  Processing by CoursesController#create as HTML
+  Parameters: {"course"=>{"nombre"=>"jalaaaaaa"}, "commit"=>"Create Course", "authenticity_token"=>"9nVUtJ5s0TxYwAxcsZNlZ2BIufSZxiP1dD60FRaHBDk=", "utf8"=>"✓", "area"=>"Probando"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mArea Load (0.2ms)[0m  [1mSELECT "areas".* FROM "areas" WHERE "areas"."nombre" = 'Probando'[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "courses" ("area_id", "created_at", "updated_at", "nombre") VALUES (1, '2011-04-28 00:12:28.663006', '2011-04-28 00:12:28.663006', 'jalaaaaaa')
+Redirected to http://localhost:3000/courses/3
+Completed 302 Found in 269ms
+
+
+Started GET "/courses/3" for 127.0.0.1 at Wed Apr 27 19:12:28 -0500 2011
+  Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 3 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 3 LIMIT 1[0m
+Rendered courses/show.html.erb within layouts/application (20.9ms)
+Completed 200 OK in 164ms (Views: 108.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/courses/images/abajoRedondo.png" for 127.0.0.1 at Wed Apr 27 19:12:29 -0500 2011
+
+ActionController::RoutingError (No route matches "/courses/images/abajoRedondo.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Apr 27 19:15:06 -0500 2011
+  Processing by HomeController#index as HTML
+  [1m[36mSQL (0.8ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered home/index.html.erb within layouts/application (151.8ms)
+Completed 200 OK in 160ms (Views: 157.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/courses.xls" for 127.0.0.1 at Wed Apr 27 19:29:01 -0500 2011
+  Processing by CoursesController#index as XLS
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses"
+Rendered text template (0.0ms)
+Sent data  (9.4ms)
+Completed 200 OK in 76ms (Views: 9.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Apr 27 19:32:41 -0500 2011
+  Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered home/index.html.erb within layouts/application (143.9ms)
+Completed 200 OK in 152ms (Views: 151.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at Wed Apr 27 19:33:42 -0500 2011
+  Processing by Devise::SessionsController#destroy as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 43ms
+
+
+Started GET "/" for 127.0.0.1 at Wed Apr 27 19:33:42 -0500 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (144.1ms)
+Completed 200 OK in 153ms (Views: 152.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at Wed Apr 27 19:33:43 -0500 2011
+  Processing by RegistrationsController#new as HTML
+Rendered devise/shared/_links.erb (1.5ms)
+Rendered registrations/new.html.erb within layouts/application (51.9ms)
+Completed 200 OK in 175ms (Views: 64.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/images/abajoRedondo.png" for 127.0.0.1 at Wed Apr 27 19:33:44 -0500 2011
+
+ActionController::RoutingError (No route matches "/users/images/abajoRedondo.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to DeviseCreateUsers (20110218000519)
+Migrating to AddNameToUser (20110223043651)
+Migrating to AddCosasToUser (20110223071023)
+Migrating to CreateMajors (20110223072250)
+Migrating to AddMasCosasToUser (20110223074405)
+Migrating to AddSeguroToUser (20110223155712)
+Migrating to CreateAreas (20110224001428)
+Migrating to CreateCourses (20110224001544)
+Migrating to AddCarreraToUser (20110314003005)
+Migrating to AddAreaToCourse (20110314012505)
+Migrating to AddAdminToUser (20110314015437)
+Migrating to AddNuevoToUser (20110314095700)
+Migrating to CreateQuestions (20110318012233)
+Migrating to CreateAnswers (20110318012554)
+Migrating to AddAreasToMajors (20110428004510)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.5ms)[0m  [1mALTER TABLE "majors" ADD "area_1" integer[0m
+  [1m[35mSQL (0.2ms)[0m  ALTER TABLE "majors" ADD "area_2" integer
+  [1m[36mSQL (0.2ms)[0m  [1mALTER TABLE "majors" ADD "area_3" integer[0m
+  [1m[35mSQL (0.2ms)[0m  ALTER TABLE "majors" ADD "area_4" integer
+  [1m[36mSQL (0.2ms)[0m  [1mALTER TABLE "majors" ADD "area_5" integer[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110428004510')
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.5ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("answers")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("areas")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("courses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("majors")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("questions")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_users_on_reset_password_token')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at Wed Apr 27 19:52:30 -0500 2011
+  Processing by RegistrationsController#new as HTML
+Rendered devise/shared/_links.erb (1.5ms)
+Rendered registrations/new.html.erb within layouts/application (49.5ms)
+Completed 200 OK in 85ms (Views: 60.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/images/abajoRedondo.png" for 127.0.0.1 at Wed Apr 27 19:52:31 -0500 2011
+
+ActionController::RoutingError (No route matches "/users/images/abajoRedondo.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Wed Apr 27 19:52:33 -0500 2011
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.9ms)
+Rendered devise/sessions/new.html.erb within layouts/application (25.7ms)
+Completed 200 OK in 159ms (Views: 35.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/images/abajoRedondo.png" for 127.0.0.1 at Wed Apr 27 19:52:33 -0500 2011
+
+ActionController::RoutingError (No route matches "/users/images/abajoRedondo.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at Wed Apr 27 19:52:43 -0500 2011
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Entrar", "authenticity_token"=>"9nVUtJ5s0TxYwAxcsZNlZ2BIufSZxiP1dD60FRaHBDk=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"master@master.com"}}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'master@master.com' LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE "users" SET "updated_at" = '2011-04-28 00:52:43.381688', "sign_in_count" = 2, "current_sign_in_at" = '2011-04-28 00:52:43.380940' WHERE "users"."id" = 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 279ms
+
+
+Started GET "/" for 127.0.0.1 at Wed Apr 27 19:52:43 -0500 2011
+  Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered home/index.html.erb within layouts/application (137.8ms)
+Completed 200 OK in 146ms (Views: 144.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at Wed Apr 27 19:52:47 -0500 2011
+  Processing by CoursesController#new as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mArea Load (0.3ms)[0m  [1mSELECT "areas".* FROM "areas" ORDER BY nombre[0m
+Rendered courses/_form.html.erb (21.4ms)
+Rendered courses/new.html.erb within layouts/application (28.7ms)
+Completed 200 OK in 181ms (Views: 36.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/courses/images/abajoRedondo.png" for 127.0.0.1 at Wed Apr 27 19:52:47 -0500 2011
+
+ActionController::RoutingError (No route matches "/courses/images/abajoRedondo.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/courses/images/abajoRedondo.png" for 127.0.0.1 at Wed Apr 27 19:52:47 -0500 2011
+
+ActionController::RoutingError (No route matches "/courses/images/abajoRedondo.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/majors/new" for 127.0.0.1 at Wed Apr 27 19:52:51 -0500 2011
+  Processing by MajorsController#new as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+ERROR: compiling _app_views_majors__form_html_erb___1568731999_70142145262500_878270 RAISED compile error
+/home/guayo/Desktop/prepanet/app/views/majors/_form.html.erb:33: syntax error, unexpected ')', expecting tASSOC
+...,options_for_select(@nombres));@output_buffer.safe_concat('
+                              ^
+/home/guayo/Desktop/prepanet/app/views/majors/_form.html.erb:39: syntax error, unexpected kEND, expecting ')'
+'); end 
+       ^
+/home/guayo/Desktop/prepanet/app/views/majors/_form.html.erb:41: syntax error, unexpected kENSURE, expecting ')'
+/home/guayo/Desktop/prepanet/app/views/majors/_form.html.erb:43: syntax error, unexpected kEND, expecting ')'
+Function body:           def _app_views_majors__form_html_erb___1568731999_70142145262500_878270(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "majors/_form";_old_output_buffer = @output_buffer;form = local_assigns[:form];;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.append=  form_for(@major) do |f| @output_buffer.safe_concat('
+');   if @major.errors.any? 
+@output_buffer.safe_concat('    <div id="error_explanation">
+      <h2>');@output_buffer.append= ( pluralize(@major.errors.count, "error") );@output_buffer.safe_concat(' No se puede grabar este curso:</h2>
+
+      <ul>
+');@output_buffer.append_if_string=        @major.errors.full_messages.each do |msg| 
+@output_buffer.safe_concat('        <li>');@output_buffer.append= ( msg );@output_buffer.safe_concat('</li>
+');       end 
+@output_buffer.safe_concat('      </ul>
+    </div>
+');   end 
+@output_buffer.safe_concat('
+  <div class="field">
+    ');@output_buffer.append= ( f.label :nombre );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :nombre );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :sigla );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :sigla );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  
+');  
+        @nombres = []
+        @areas=Area.find(:all, :order => "nombre")
+        @areas.each do |area|
+            @nombres << area.nombre
+        end
+  
+@output_buffer.safe_concat('  
+  <div class="field">
+    ');@output_buffer.append= ( f.label 'area' );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( select_tag 'area',:multiple => true ,options_for_select(@nombres));@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  
+  <div class="actions">
+    ');@output_buffer.append= ( f.submit );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+'); end 
+@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /home/guayo/Desktop/prepanet/app/views/majors/_form.html.erb:43:in `compile'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:134:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:54:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:127:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/partials.rb:333:in `render_partial'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/partials.rb:262:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/partials.rb:260:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/partials.rb:378:in `_render_partial'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/rendering.rb:31:in `render'
+/home/guayo/Desktop/prepanet/app/views/majors/new.html.erb:3:in `_app_views_majors_new_html_erb___1771619593_70142145282440_0'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:135:in `send'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:135:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:54:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:127:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/rendering.rb:59:in `_render_template'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/rendering.rb:56:in `_render_template'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/rendering.rb:26:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:115:in `_render_template'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:109:in `render_to_body'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:102:in `render_to_string'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:93:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/rendering.rb:17:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/mime_responds.rb:261:in `retrieve_response_from_mimes'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/mime_responds.rb:192:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/mime_responds.rb:192:in `respond_to'
+/home/guayo/Desktop/prepanet/app/controllers/majors_controller.rb:32:in `new'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/base.rb:150:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/callbacks.rb:18:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:440:in `_run__2002573606__process_action__943997142__callbacks'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:409:in `send'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:93:in `send'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:93:in `run_callbacks'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/base.rb:119:in `process'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:41:in `process'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal.rb:138:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal.rb:178:in `action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:148:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:93:in `recognize'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:75:in `optimized_each'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:92:in `recognize'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:139:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/routing/route_set.rb:492:in `call'
+/usr/lib/ruby/gems/1.8/gems/warden-1.0.3/lib/warden/manager.rb:35:in `call'
+/usr/lib/ruby/gems/1.8/gems/warden-1.0.3/lib/warden/manager.rb:34:in `catch'
+/usr/lib/ruby/gems/1.8/gems/warden-1.0.3/lib/warden/manager.rb:34:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/head.rb:14:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/methodoverride.rb:24:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/cookies.rb:302:in `call'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/query_cache.rb:32:in `call'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/query_cache.rb:12:in `cache'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/query_cache.rb:31:in `call'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:354:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/sendfile.rb:107:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/rack/logger.rb:13:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/runtime.rb:17:in `call'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `synchronize'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/static.rb:30:in `call'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/application.rb:168:in `call'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/application.rb:77:in `send'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/application.rb:77:in `method_missing'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/rack/log_tailer.rb:14:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/content_length.rb:13:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/handler/webrick.rb:52:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/handler/webrick.rb:13:in `run'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/server.rb:213:in `start'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/commands/server.rb:65:in `start'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/commands.rb:30
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/commands.rb:27:in `tap'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/commands.rb:27
+script/rails:6:in `require'
+script/rails:6
+Rendered majors/_form.html.erb (13.6ms)
+Rendered majors/new.html.erb within layouts/application (15.4ms)
+Completed   in 98ms
+
+ActionView::Template::Error (compile error
+/home/guayo/Desktop/prepanet/app/views/majors/_form.html.erb:33: syntax error, unexpected ')', expecting tASSOC
+...,options_for_select(@nombres));@output_buffer.safe_concat('
+                              ^
+/home/guayo/Desktop/prepanet/app/views/majors/_form.html.erb:39: syntax error, unexpected kEND, expecting ')'
+'); end 
+       ^
+/home/guayo/Desktop/prepanet/app/views/majors/_form.html.erb:41: syntax error, unexpected kENSURE, expecting ')'
+/home/guayo/Desktop/prepanet/app/views/majors/_form.html.erb:43: syntax error, unexpected kEND, expecting ')'):
+    30:   
+    31:   <div class="field">
+    32:     <%= f.label 'area' %><br />
+    33:     <%= select_tag 'area',:multiple => true ,options_for_select(@nombres)%>
+    34:   </div>
+    35:   
+    36:   <div class="actions">
+  app/views/majors/_form.html.erb:43:in `compile'
+  app/views/majors/new.html.erb:3:in `_app_views_majors_new_html_erb___1771619593_70142145282440_0'
+  app/controllers/majors_controller.rb:32:in `new'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (381.0ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (397.6ms)
+
+
+Started GET "/majors/new" for 127.0.0.1 at Wed Apr 27 19:53:44 -0500 2011
+  Processing by MajorsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+ERROR: compiling _app_views_majors__form_html_erb___1568731999_70142146170740_878270 RAISED compile error
+/home/guayo/Desktop/prepanet/app/views/majors/_form.html.erb:34: syntax error, unexpected ')', expecting tASSOC
+...,options_for_select(@nombres));@output_buffer.safe_concat('
+                              ^
+/home/guayo/Desktop/prepanet/app/views/majors/_form.html.erb:40: syntax error, unexpected kEND, expecting ')'
+'); end 
+       ^
+/home/guayo/Desktop/prepanet/app/views/majors/_form.html.erb:42: syntax error, unexpected kENSURE, expecting ')'
+/home/guayo/Desktop/prepanet/app/views/majors/_form.html.erb:44: syntax error, unexpected kEND, expecting ')'
+Function body:           def _app_views_majors__form_html_erb___1568731999_70142146170740_878270(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "majors/_form";_old_output_buffer = @output_buffer;form = local_assigns[:form];;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.append=  form_for(@major) do |f| @output_buffer.safe_concat('
+');   if @major.errors.any? 
+@output_buffer.safe_concat('    <div id="error_explanation">
+      <h2>');@output_buffer.append= ( pluralize(@major.errors.count, "error") );@output_buffer.safe_concat(' No se puede grabar este curso:</h2>
+
+      <ul>
+');@output_buffer.append_if_string=        @major.errors.full_messages.each do |msg| 
+@output_buffer.safe_concat('        <li>');@output_buffer.append= ( msg );@output_buffer.safe_concat('</li>
+');       end 
+@output_buffer.safe_concat('      </ul>
+    </div>
+');   end 
+@output_buffer.safe_concat('
+  <div class="field">
+    ');@output_buffer.append= ( f.label :nombre );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :nombre );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :sigla );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :sigla );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  
+  
+  
+  <div class="field">
+    ');@output_buffer.append= ( f.label 'area' );@output_buffer.safe_concat('<br />
+');    
+        @nombres = []
+        @areas=Area.find(:all, :order => "nombre")
+        @areas.each do |area|
+            @nombres << area.nombre
+        end
+    
+@output_buffer.safe_concat('    ');@output_buffer.append= ( select_tag 'area',:multiple => true ,options_for_select(@nombres));@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  
+  <div class="actions">
+    ');@output_buffer.append= ( f.submit );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+'); end 
+@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /home/guayo/Desktop/prepanet/app/views/majors/_form.html.erb:44:in `compile'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:134:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:54:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:127:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/partials.rb:333:in `render_partial'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/partials.rb:262:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/partials.rb:260:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/partials.rb:378:in `_render_partial'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/rendering.rb:31:in `render'
+/home/guayo/Desktop/prepanet/app/views/majors/new.html.erb:3:in `_app_views_majors_new_html_erb___1771619593_70142146186960_0'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:135:in `send'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:135:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:54:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:127:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/rendering.rb:59:in `_render_template'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/rendering.rb:56:in `_render_template'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/rendering.rb:26:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:115:in `_render_template'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:109:in `render_to_body'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:102:in `render_to_string'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:93:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/rendering.rb:17:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/mime_responds.rb:261:in `retrieve_response_from_mimes'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/mime_responds.rb:192:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/mime_responds.rb:192:in `respond_to'
+/home/guayo/Desktop/prepanet/app/controllers/majors_controller.rb:32:in `new'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/base.rb:150:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/callbacks.rb:18:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:440:in `_run__2002573606__process_action__943997142__callbacks'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:409:in `send'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:93:in `send'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:93:in `run_callbacks'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/base.rb:119:in `process'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:41:in `process'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal.rb:138:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal.rb:178:in `action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:148:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:93:in `recognize'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:75:in `optimized_each'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:92:in `recognize'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:139:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/routing/route_set.rb:492:in `call'
+/usr/lib/ruby/gems/1.8/gems/warden-1.0.3/lib/warden/manager.rb:35:in `call'
+/usr/lib/ruby/gems/1.8/gems/warden-1.0.3/lib/warden/manager.rb:34:in `catch'
+/usr/lib/ruby/gems/1.8/gems/warden-1.0.3/lib/warden/manager.rb:34:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/head.rb:14:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/methodoverride.rb:24:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/cookies.rb:302:in `call'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/query_cache.rb:32:in `call'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/query_cache.rb:12:in `cache'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/query_cache.rb:31:in `call'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:354:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/sendfile.rb:107:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/rack/logger.rb:13:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/runtime.rb:17:in `call'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `synchronize'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/static.rb:30:in `call'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/application.rb:168:in `call'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/application.rb:77:in `send'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/application.rb:77:in `method_missing'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/rack/log_tailer.rb:14:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/content_length.rb:13:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/handler/webrick.rb:52:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/handler/webrick.rb:13:in `run'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/server.rb:213:in `start'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/commands/server.rb:65:in `start'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/commands.rb:30
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/commands.rb:27:in `tap'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/commands.rb:27
+script/rails:6:in `require'
+script/rails:6
+Rendered majors/_form.html.erb (1.5ms)
+Rendered majors/new.html.erb within layouts/application (3.2ms)
+Completed   in 143ms
+
+ActionView::Template::Error (compile error
+/home/guayo/Desktop/prepanet/app/views/majors/_form.html.erb:34: syntax error, unexpected ')', expecting tASSOC
+...,options_for_select(@nombres));@output_buffer.safe_concat('
+                              ^
+/home/guayo/Desktop/prepanet/app/views/majors/_form.html.erb:40: syntax error, unexpected kEND, expecting ')'
+'); end 
+       ^
+/home/guayo/Desktop/prepanet/app/views/majors/_form.html.erb:42: syntax error, unexpected kENSURE, expecting ')'
+/home/guayo/Desktop/prepanet/app/views/majors/_form.html.erb:44: syntax error, unexpected kEND, expecting ')'):
+    31:             @nombres << area.nombre
+    32:         end
+    33:     %>
+    34:     <%= select_tag 'area',:multiple => true ,options_for_select(@nombres)%>
+    35:   </div>
+    36:   
+    37:   <div class="actions">
+  app/views/majors/_form.html.erb:44:in `compile'
+  app/views/majors/new.html.erb:3:in `_app_views_majors_new_html_erb___1771619593_70142146186960_0'
+  app/controllers/majors_controller.rb:32:in `new'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (291.5ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (373.4ms)
+
+
+Started GET "/majors/new" for 127.0.0.1 at Wed Apr 27 19:54:02 -0500 2011
+  Processing by MajorsController#new as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+ERROR: compiling _app_views_majors__form_html_erb___1568731999_70142144986820_878270 RAISED compile error
+/home/guayo/Desktop/prepanet/app/views/majors/_form.html.erb:34: syntax error, unexpected ')', expecting tASSOC
+...,options_for_select(@nombres));@output_buffer.safe_concat('
+                              ^
+/home/guayo/Desktop/prepanet/app/views/majors/_form.html.erb:40: syntax error, unexpected kEND, expecting ')'
+'); end 
+       ^
+/home/guayo/Desktop/prepanet/app/views/majors/_form.html.erb:42: syntax error, unexpected kENSURE, expecting ')'
+/home/guayo/Desktop/prepanet/app/views/majors/_form.html.erb:44: syntax error, unexpected kEND, expecting ')'
+Function body:           def _app_views_majors__form_html_erb___1568731999_70142144986820_878270(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "majors/_form";_old_output_buffer = @output_buffer;form = local_assigns[:form];;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.append=  form_for(@major) do |f| @output_buffer.safe_concat('
+');   if @major.errors.any? 
+@output_buffer.safe_concat('    <div id="error_explanation">
+      <h2>');@output_buffer.append= ( pluralize(@major.errors.count, "error") );@output_buffer.safe_concat(' No se puede grabar este curso:</h2>
+
+      <ul>
+');@output_buffer.append_if_string=        @major.errors.full_messages.each do |msg| 
+@output_buffer.safe_concat('        <li>');@output_buffer.append= ( msg );@output_buffer.safe_concat('</li>
+');       end 
+@output_buffer.safe_concat('      </ul>
+    </div>
+');   end 
+@output_buffer.safe_concat('
+  <div class="field">
+    ');@output_buffer.append= ( f.label :nombre );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :nombre );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :sigla );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :sigla );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  
+  
+  
+  <div class="field">
+    ');@output_buffer.append= ( f.label 'area' );@output_buffer.safe_concat('<br />
+');    
+        @nombres = []
+        @areas=Area.find(:all, :order => "nombre")
+        @areas.each do |area|
+            @nombres << area.nombre
+        end
+    
+@output_buffer.safe_concat('    ');@output_buffer.append= ( select_tag 'area',:multiple => "true" ,options_for_select(@nombres));@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  
+  <div class="actions">
+    ');@output_buffer.append= ( f.submit );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+'); end 
+@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /home/guayo/Desktop/prepanet/app/views/majors/_form.html.erb:44:in `compile'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:134:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:54:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:127:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/partials.rb:333:in `render_partial'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/partials.rb:262:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/partials.rb:260:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/partials.rb:378:in `_render_partial'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/rendering.rb:31:in `render'
+/home/guayo/Desktop/prepanet/app/views/majors/new.html.erb:3:in `_app_views_majors_new_html_erb___1771619593_70142145001420_0'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:135:in `send'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:135:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:54:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/template.rb:127:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/rendering.rb:59:in `_render_template'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/rendering.rb:56:in `_render_template'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_view/render/rendering.rb:26:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:115:in `_render_template'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:109:in `render_to_body'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:102:in `render_to_string'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:93:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/rendering.rb:17:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/mime_responds.rb:261:in `retrieve_response_from_mimes'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/mime_responds.rb:192:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/mime_responds.rb:192:in `respond_to'
+/home/guayo/Desktop/prepanet/app/controllers/majors_controller.rb:32:in `new'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/base.rb:150:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/callbacks.rb:18:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:440:in `_run__2002573606__process_action__943997142__callbacks'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:409:in `send'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:93:in `send'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:93:in `run_callbacks'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/base.rb:119:in `process'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/abstract_controller/rendering.rb:41:in `process'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal.rb:138:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_controller/metal.rb:178:in `action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:148:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:93:in `recognize'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:75:in `optimized_each'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:92:in `recognize'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:139:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/routing/route_set.rb:492:in `call'
+/usr/lib/ruby/gems/1.8/gems/warden-1.0.3/lib/warden/manager.rb:35:in `call'
+/usr/lib/ruby/gems/1.8/gems/warden-1.0.3/lib/warden/manager.rb:34:in `catch'
+/usr/lib/ruby/gems/1.8/gems/warden-1.0.3/lib/warden/manager.rb:34:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/head.rb:14:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/methodoverride.rb:24:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/cookies.rb:302:in `call'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/query_cache.rb:32:in `call'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/query_cache.rb:12:in `cache'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/query_cache.rb:31:in `call'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:354:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/sendfile.rb:107:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/rack/logger.rb:13:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/runtime.rb:17:in `call'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.4/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `synchronize'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/static.rb:30:in `call'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/application.rb:168:in `call'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/application.rb:77:in `send'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/application.rb:77:in `method_missing'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/rack/log_tailer.rb:14:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/content_length.rb:13:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/handler/webrick.rb:52:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/handler/webrick.rb:13:in `run'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/server.rb:213:in `start'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/commands/server.rb:65:in `start'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/commands.rb:30
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/commands.rb:27:in `tap'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.4/lib/rails/commands.rb:27
+script/rails:6:in `require'
+script/rails:6
+Rendered majors/_form.html.erb (1.6ms)
+Rendered majors/new.html.erb within layouts/application (3.3ms)
+Completed   in 66ms
+
+ActionView::Template::Error (compile error
+/home/guayo/Desktop/prepanet/app/views/majors/_form.html.erb:34: syntax error, unexpected ')', expecting tASSOC
+...,options_for_select(@nombres));@output_buffer.safe_concat('
+                              ^
+/home/guayo/Desktop/prepanet/app/views/majors/_form.html.erb:40: syntax error, unexpected kEND, expecting ')'
+'); end 
+       ^
+/home/guayo/Desktop/prepanet/app/views/majors/_form.html.erb:42: syntax error, unexpected kENSURE, expecting ')'
+/home/guayo/Desktop/prepanet/app/views/majors/_form.html.erb:44: syntax error, unexpected kEND, expecting ')'):
+    31:             @nombres << area.nombre
+    32:         end
+    33:     %>
+    34:     <%= select_tag 'area',:multiple => "true" ,options_for_select(@nombres)%>
+    35:   </div>
+    36:   
+    37:   <div class="actions">
+  app/views/majors/_form.html.erb:44:in `compile'
+  app/views/majors/new.html.erb:3:in `_app_views_majors_new_html_erb___1771619593_70142145001420_0'
+  app/controllers/majors_controller.rb:32:in `new'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (386.7ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (394.8ms)
+
+
+Started GET "/majors/new" for 127.0.0.1 at Wed Apr 27 19:55:07 -0500 2011
+  Processing by MajorsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mArea Load (0.3ms)[0m  SELECT "areas".* FROM "areas" ORDER BY nombre
+Rendered majors/_form.html.erb (23.6ms)
+Rendered majors/new.html.erb within layouts/application (30.9ms)
+Completed 200 OK in 170ms (Views: 38.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/majors/images/abajoRedondo.png" for 127.0.0.1 at Wed Apr 27 19:55:07 -0500 2011
+
+ActionController::RoutingError (No route matches "/majors/images/abajoRedondo.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/majors/images/favicon.png" for 127.0.0.1 at Wed Apr 27 19:55:07 -0500 2011
+
+ActionController::RoutingError (No route matches "/majors/images/favicon.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/majors/images/favicon.png" for 127.0.0.1 at Wed Apr 27 19:55:07 -0500 2011
+
+ActionController::RoutingError (No route matches "/majors/images/favicon.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/majors/images/favicon.png" for 127.0.0.1 at Wed Apr 27 19:55:10 -0500 2011
+
+ActionController::RoutingError (No route matches "/majors/images/favicon.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/majors/new" for 127.0.0.1 at Wed Apr 27 19:55:20 -0500 2011
+  Processing by MajorsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mArea Load (0.4ms)[0m  SELECT "areas".* FROM "areas" ORDER BY nombre
+Rendered majors/_form.html.erb (105.2ms)
+Rendered majors/new.html.erb within layouts/application (113.1ms)
+Completed 200 OK in 175ms (Views: 120.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/majors/images/abajoRedondo.png" for 127.0.0.1 at Wed Apr 27 19:55:20 -0500 2011
+
+ActionController::RoutingError (No route matches "/majors/images/abajoRedondo.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to AddAreasToMajors (20110428004510)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.6ms)[0m  [1mCREATE TEMPORARY TABLE "altered_majors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255), "sigla" varchar(255), "created_at" datetime, "updated_at" datetime, "area_1" integer, "area_2" integer, "area_3" integer, "area_4" integer, "area_5" integer) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("majors")
+  [1m[36mSQL (0.2ms)[0m  [1mDROP TABLE "majors"[0m
+  [1m[35mSQL (0.3ms)[0m  CREATE TABLE "majors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255), "sigla" varchar(255), "created_at" datetime, "updated_at" datetime, "area_1" integer, "area_2" integer, "area_3" integer, "area_4" integer) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("altered_majors")[0m
+  [1m[35mSQL (0.2ms)[0m  DROP TABLE "altered_majors"
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE TEMPORARY TABLE "altered_majors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255), "sigla" varchar(255), "created_at" datetime, "updated_at" datetime, "area_1" integer, "area_2" integer, "area_3" integer, "area_4" integer) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("majors")
+  [1m[36mSQL (0.2ms)[0m  [1mDROP TABLE "majors"[0m
+  [1m[35mSQL (0.2ms)[0m  CREATE TABLE "majors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255), "sigla" varchar(255), "created_at" datetime, "updated_at" datetime, "area_1" integer, "area_2" integer, "area_3" integer) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("altered_majors")[0m
+  [1m[35mSQL (0.1ms)[0m  DROP TABLE "altered_majors"
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE TEMPORARY TABLE "altered_majors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255), "sigla" varchar(255), "created_at" datetime, "updated_at" datetime, "area_1" integer, "area_2" integer, "area_3" integer) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("majors")
+  [1m[36mSQL (0.2ms)[0m  [1mDROP TABLE "majors"[0m
+  [1m[35mSQL (0.2ms)[0m  CREATE TABLE "majors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255), "sigla" varchar(255), "created_at" datetime, "updated_at" datetime, "area_1" integer, "area_2" integer) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("altered_majors")[0m
+  [1m[35mSQL (0.1ms)[0m  DROP TABLE "altered_majors"
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE TEMPORARY TABLE "altered_majors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255), "sigla" varchar(255), "created_at" datetime, "updated_at" datetime, "area_1" integer, "area_2" integer) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("majors")
+  [1m[36mSQL (0.1ms)[0m  [1mDROP TABLE "majors"[0m
+  [1m[35mSQL (0.2ms)[0m  CREATE TABLE "majors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255), "sigla" varchar(255), "created_at" datetime, "updated_at" datetime, "area_1" integer) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("altered_majors")[0m
+  [1m[35mSQL (0.1ms)[0m  DROP TABLE "altered_majors"
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE TEMPORARY TABLE "altered_majors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255), "sigla" varchar(255), "created_at" datetime, "updated_at" datetime, "area_1" integer) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("majors")
+  [1m[36mSQL (0.1ms)[0m  [1mDROP TABLE "majors"[0m
+  [1m[35mSQL (0.2ms)[0m  CREATE TABLE "majors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255), "sigla" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("altered_majors")[0m
+  [1m[35mSQL (0.2ms)[0m  DROP TABLE "altered_majors"
+  [1m[36mAREL (0.2ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20110428004510'[0m
+  [1m[35mSQL (0.4ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("answers")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("areas")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("courses")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("majors")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("questions")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_users_on_reset_password_token')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_users_on_email')
+
+
+Started GET "/majors/new" for 127.0.0.1 at Wed Apr 27 19:56:26 -0500 2011
+  Processing by MajorsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mArea Load (0.3ms)[0m  SELECT "areas".* FROM "areas" ORDER BY nombre
+Rendered majors/_form.html.erb (22.5ms)
+Rendered majors/new.html.erb within layouts/application (29.4ms)
+Completed 200 OK in 181ms (Views: 37.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/majors/images/abajoRedondo.png" for 127.0.0.1 at Wed Apr 27 19:56:26 -0500 2011
+
+ActionController::RoutingError (No route matches "/majors/images/abajoRedondo.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)

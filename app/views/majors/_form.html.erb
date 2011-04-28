@@ -19,6 +19,21 @@
     <%= f.label :sigla %><br />
     <%= f.text_field :sigla %>
   </div>
+  
+  
+  
+  <div class="field">
+    <%= f.label 'area' %><br />
+    <%
+        @nombres = []
+        @areas=Area.find(:all, :order => "nombre")
+        @areas.each do |area|
+            @nombres << area.nombre
+        end
+    %>
+    <%= select_tag 'area' ,options_for_select(@nombres) ,:multiple => true%>
+  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>
