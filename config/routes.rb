@@ -1,6 +1,8 @@
 Prepanet::Application.routes.draw do
 
 
+  resources :periods
+
   get "users/show"
 
   get "users/index"

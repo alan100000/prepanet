@@ -1,0 +1,25 @@
+<%= form_for(@period) do |f| %>
+  <% if @period.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@period.errors.count, "error") %> prohibited this period from being saved:</h2>
+
+      <ul>
+      <% @period.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :mes %><br />
+    <%= f.text_field :mes %>
+  </div>
+  <div class="field">
+    <%= f.label :ano %><br />
+    <%= f.text_field :ano %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
