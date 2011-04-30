@@ -6,6 +6,7 @@
     <th>Nombre</th>
     <th>Correo</th>
     <th>Semestre</th>
+    <th>Carrera</th>
     <th></th>
   </tr>
 
@@ -15,9 +16,11 @@
     <td><%= user.nombre %>&nbsp;<%= user.apellido_paterno %>&nbsp;<%= user.apellido_materno %></td>
     <td><%= user.email %></td>
     <td><%= user.semestre %></td>
+    <td><%= user.major_id %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
+<a href="index.xls">Generar Excel</a>

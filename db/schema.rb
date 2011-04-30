@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110430012903) do
+ActiveRecord::Schema.define(:version => 20110430014020) do
 
   create_table "answered_questions", :force => true do |t|
     t.integer  "question_id"
@@ -45,6 +45,13 @@ ActiveRecord::Schema.define(:version => 20110430012903) do
   create_table "majors", :force => true do |t|
     t.string   "nombre"
     t.string   "sigla"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "periods", :force => true do |t|
+    t.string   "mes"
+    t.integer  "ano"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -96,6 +103,7 @@ ActiveRecord::Schema.define(:version => 20110430012903) do
     t.integer  "major_id"
     t.boolean  "admin"
     t.integer  "semestre"
+    t.integer  "period_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

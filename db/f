@@ -1,0 +1,56 @@
+BEGIN TRANSACTION;
+CREATE TABLE "answered_questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "question_id" integer, "answer_chosen" integer, "result" integer, "quiz_id" integer, "created_at" datetime, "updated_at" datetime);
+CREATE TABLE "answers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "question_id" integer, "content" varchar(255), "option" integer, "created_at" datetime, "updated_at" datetime);
+INSERT INTO answers VALUES(1,1,'Si, un chingo',1,'2011-04-30 01:59:45.050680','2011-04-30 01:59:45.050680');
+INSERT INTO answers VALUES(2,1,'Si, leve',2,'2011-04-30 01:59:45.062027','2011-04-30 01:59:45.062027');
+INSERT INTO answers VALUES(3,1,'Si',3,'2011-04-30 01:59:45.066188','2011-04-30 01:59:45.066188');
+INSERT INTO answers VALUES(4,1,'Un poco',4,'2011-04-30 01:59:45.070563','2011-04-30 01:59:45.070563');
+CREATE TABLE "areas" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255), "created_at" datetime, "updated_at" datetime);
+CREATE TABLE "courses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255), "created_at" datetime, "updated_at" datetime, "area_id" integer);
+CREATE TABLE "majors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255), "sigla" varchar(255), "created_at" datetime, "updated_at" datetime);
+CREATE TABLE "periods" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "mes" varchar(255), "ano" integer, "created_at" datetime, "updated_at" datetime);
+INSERT INTO periods VALUES(1,'Septiembre',2011,'2011-04-30 02:37:27.749096','2011-04-30 02:37:27.749096');
+CREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" text, "correct_answer" integer, "created_at" datetime, "updated_at" datetime);
+INSERT INTO questions VALUES(1,'A Eduardo le huele la boca a mecos?',1,'2011-04-30 01:59:45.044370','2011-04-30 01:59:45.044370');
+CREATE TABLE "quizzes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "created_at" datetime, "updated_at" datetime);
+CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL);
+INSERT INTO schema_migrations VALUES(20110218000519);
+INSERT INTO schema_migrations VALUES(20110223043651);
+INSERT INTO schema_migrations VALUES(20110223071023);
+INSERT INTO schema_migrations VALUES(20110223072250);
+INSERT INTO schema_migrations VALUES(20110223074405);
+INSERT INTO schema_migrations VALUES(20110223155712);
+INSERT INTO schema_migrations VALUES(20110224001428);
+INSERT INTO schema_migrations VALUES(20110224001544);
+INSERT INTO schema_migrations VALUES(20110314003005);
+INSERT INTO schema_migrations VALUES(20110314012505);
+INSERT INTO schema_migrations VALUES(20110314015437);
+INSERT INTO schema_migrations VALUES(20110314095700);
+INSERT INTO schema_migrations VALUES(20110318012233);
+INSERT INTO schema_migrations VALUES(20110318012554);
+INSERT INTO schema_migrations VALUES(20110430010516);
+INSERT INTO schema_migrations VALUES(20110428020240);
+INSERT INTO schema_migrations VALUES(20110428020548);
+INSERT INTO schema_migrations VALUES(20110430012903);
+INSERT INTO schema_migrations VALUES(20110430013415);
+INSERT INTO schema_migrations VALUES(20110430014020);
+CREATE TABLE sqlite_sequence(name,seq);
+INSERT INTO sqlite_sequence VALUES('users',3);
+INSERT INTO sqlite_sequence VALUES('questions',1);
+INSERT INTO sqlite_sequence VALUES('answers',4);
+INSERT INTO sqlite_sequence VALUES('periods',1);
+CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "password_salt" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "remember_token" varchar(255), "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "nombre" varchar(255), "apellido_paterno" varchar(255), "apellido_materno" varchar(255), "sexo" varchar(255), "matricula" varchar(255), "telefono_particular" varchar(255), "telefono_celular" varchar(255), "email_personal" varchar(255), "promedio_global_acumulado" integer, "promedio_del_semestre_anterior" integer, "nombre_del_seguro" varchar(255), "compania" varchar(255), "numero_de_poliza" varchar(255), "fecha_de_vencimiento" date, "contacto_emergencia" varchar(255), "parentesco" varchar(255), "telefono_emergencia" varchar(255), "major_id" integer, "admin" boolean, "semestre" integer, "period_id" integer);
+INSERT INTO users VALUES(1,'a010@a010.com','$2a$10$w3bFL7tEzcw/TRaWZrG4/eQRqO04jl.nYQprlrCAU4w3xS1UGAd1W','$2a$10$w3bFL7tEzcw/TRaWZrG4/e',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,'2011-04-28 13:28:42.211348','2011-04-28 13:28:42.211348','Jorge','Blanco','Segura','Hombre',1087740,81818181,81818181,'safs@ok.com',88,88,'df','sdf','sdf3',NULL,'werew','ewrwer',3243,NULL,NULL,1,NULL);
+INSERT INTO users VALUES(2,'ok@ok.com','$2a$10$5DAVmsVQ9.05J1pCeumGSufFhR77T4kfz6UZanm8NpHEQXBuZi.3S','$2a$10$5DAVmsVQ9.05J1pCeumGSu',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,'2011-04-28 15:41:04.087223','2011-04-28 15:41:04.087223','PEdro','Paramo','Lopez','Hombre',109090,99999,9999,'ok@ok.com',9,9,'jij','iji','j8',NULL,'okok','okok',999,NULL,NULL,4,NULL);
+INSERT INTO users VALUES(3,'d@ddd.com','$2a$10$h97c5D2vuWKSAbFgusEzVON9mEqXGbIvAa1B8tsy8txl.31zCjdHC','$2a$10$h97c5D2vuWKSAbFgusEzVO',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,'2011-04-30 02:38:48.011222','2011-04-30 02:38:48.011222','Porfa','Guncvion','Funciona','Hombre',1087733,2,3,'d@eeeeeeeeeeeee.com',23,23,'234fd','wfwe','324d',NULL,'rrr','ff',324324,NULL,NULL,1,3);
+CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email");
+CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token");
+CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version");
+CREATE TRIGGER testtrigger AFTER  
+INSERT ON users
+BEGIN 
+   UPDATE users SET period_id = 
+   (SELECT last_insert_rowid() from periods)
+   WHERE id = last_insert_rowid();  
+END;
+COMMIT;
