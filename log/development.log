@@ -6339,3 +6339,193 @@ Migrating to CreateAnswers (20110318012554)
   [1m[36mSQL (0.6ms)[0m  [1mPRAGMA index_list("users")[0m
   [1m[35mSQL (0.4ms)[0m  PRAGMA index_info('index_users_on_reset_password_token')
   [1m[36mSQL (0.4ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-28 16:28:55 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (232.7ms)
+Completed   in 275ms
+
+ActionView::Template::Error (Could not find table 'users'):
+    32: 							<%= link_to "Iniciar Sesion", new_user_session_path %>
+    33: 						<% end %>
+    34: 					</td>
+    35: 					<% if can? :all, Area %>
+    36: 						<td class="menu">
+    37: 							<%= link_to "Administracion", admin_index_path %>
+    38: 						</td>
+  app/models/ability.rb:4:in `new'
+  app/models/ability.rb:4:in `initialize'
+  app/views/layouts/application.html.erb:35:in `_app_views_layouts_application_html_erb__578279773_88840540_130610079'
+
+Rendered /home/alex/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (7.3ms)
+Rendered /home/alex/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (499.2ms)
+Rendered /home/alex/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (586.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2011-04-28 16:30:37 -0500
+
+ActionController::RoutingError (No route matches "/users"):
+  
+
+Rendered /home/alex/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (3.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-28 16:34:23 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (333.8ms)
+Completed   in 364ms
+
+ActionView::Template::Error (Could not find table 'users'):
+    32: 							<%= link_to "Iniciar Sesion", new_user_session_path %>
+    33: 						<% end %>
+    34: 					</td>
+    35: 					<% if can? :all, Area %>
+    36: 						<td class="menu">
+    37: 							<%= link_to "Administracion", admin_index_path %>
+    38: 						</td>
+  app/models/ability.rb:4:in `new'
+  app/models/ability.rb:4:in `initialize'
+  app/views/layouts/application.html.erb:35:in `_app_views_layouts_application_html_erb__578279773_88660110_130610079'
+
+Rendered /home/alex/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (7.9ms)
+Rendered /home/alex/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (678.4ms)
+Rendered /home/alex/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (712.9ms)
+  [1m[36mSQL (1.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.3ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (15.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (5.8ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+Migrating to DeviseCreateUsers (20110218000519)
+  [1m[36mSQL (1.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "password_salt" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "remember_token" varchar(255), "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.7ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35mSQL (0.3ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.4ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+  [1m[35mSQL (0.6ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110218000519')[0m
+Migrating to AddNameToUser (20110223043651)
+  [1m[35mSQL (1.6ms)[0m  ALTER TABLE "users" ADD "nombre" varchar(255)
+  [1m[36mSQL (1.1ms)[0m  [1mALTER TABLE "users" ADD "apellido_paterno" varchar(255)[0m
+  [1m[35mSQL (1.2ms)[0m  ALTER TABLE "users" ADD "apellido_materno" varchar(255)
+  [1m[36mSQL (0.9ms)[0m  [1mALTER TABLE "users" ADD "sexo" varchar(255)[0m
+  [1m[35mSQL (1.1ms)[0m  ALTER TABLE "users" ADD "matricula" varchar(255)
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110223043651')[0m
+Migrating to AddCosasToUser (20110223071023)
+  [1m[35mSQL (1.3ms)[0m  ALTER TABLE "users" ADD "telefono_particular" varchar(255)
+  [1m[36mSQL (1.1ms)[0m  [1mALTER TABLE "users" ADD "telefono_celular" varchar(255)[0m
+  [1m[35mSQL (1.8ms)[0m  ALTER TABLE "users" ADD "email_personal" varchar(255)
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110223071023')[0m
+Migrating to CreateMajors (20110223072250)
+  [1m[35mSQL (1.1ms)[0m  CREATE TABLE "majors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255), "sigla" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110223072250')[0m
+Migrating to AddMasCosasToUser (20110223074405)
+  [1m[35mSQL (1.4ms)[0m  ALTER TABLE "users" ADD "promedio_global_acumulado" integer
+  [1m[36mSQL (0.9ms)[0m  [1mALTER TABLE "users" ADD "promedio_del_semestre_anterior" integer[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110223074405')
+Migrating to AddSeguroToUser (20110223155712)
+  [1m[36mSQL (1.7ms)[0m  [1mALTER TABLE "users" ADD "nombre_del_seguro" varchar(255)[0m
+  [1m[35mSQL (1.3ms)[0m  ALTER TABLE "users" ADD "compania" varchar(255)
+  [1m[36mSQL (1.4ms)[0m  [1mALTER TABLE "users" ADD "numero_de_poliza" varchar(255)[0m
+  [1m[35mSQL (1.3ms)[0m  ALTER TABLE "users" ADD "fecha_de_vencimiento" date
+  [1m[36mSQL (1.4ms)[0m  [1mALTER TABLE "users" ADD "contacto_emergencia" varchar(255)[0m
+  [1m[35mSQL (1.4ms)[0m  ALTER TABLE "users" ADD "parentesco" varchar(255)
+  [1m[36mSQL (1.4ms)[0m  [1mALTER TABLE "users" ADD "telefono_emergencia" varchar(255)[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110223155712')
+Migrating to CreateAreas (20110224001428)
+  [1m[36mSQL (1.2ms)[0m  [1mCREATE TABLE "areas" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110224001428')
+Migrating to CreateCourses (20110224001544)
+  [1m[36mSQL (1.2ms)[0m  [1mCREATE TABLE "courses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110224001544')
+Migrating to AddCarreraToUser (20110314003005)
+  [1m[36mSQL (2.2ms)[0m  [1mALTER TABLE "users" ADD "major_id" integer[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110314003005')
+Migrating to AddAreaToCourse (20110314012505)
+  [1m[36mSQL (1.2ms)[0m  [1mALTER TABLE "courses" ADD "area_id" integer[0m
+  [1m[35mSQL (13.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110314012505')
+Migrating to AddAdminToUser (20110314015437)
+  [1m[36mSQL (2.2ms)[0m  [1mALTER TABLE "users" ADD "admin" boolean[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110314015437')
+Migrating to AddNuevoToUser (20110314095700)
+  [1m[36mSQL (2.7ms)[0m  [1mALTER TABLE "users" ADD "semestre" integer[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110314095700')
+Migrating to CreateQuestions (20110318012233)
+  [1m[36mSQL (1.6ms)[0m  [1mCREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" text, "correct_answer" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110318012233')
+Migrating to CreateAnswers (20110318012554)
+  [1m[36mSQL (1.4ms)[0m  [1mCREATE TABLE "answers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "question_id" integer, "content" varchar(255), "option" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110318012554')
+  [1m[36mSQL (0.8ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("answers")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("areas")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("courses")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("majors")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("questions")
+  [1m[36mSQL (0.5ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_info('index_users_on_reset_password_token')
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-28 16:39:28 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (430.2ms)
+Completed 200 OK in 466ms (Views: 464.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2011-04-28 17:21:08 -0500
+  Processing by RegistrationsController#new as HTML
+Rendered devise/shared/_links.erb (8.8ms)
+Rendered registrations/new.html.erb within layouts/application (502.5ms)
+Completed 200 OK in 816ms (Views: 556.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/images/abajoRedondo.png" for 127.0.0.1 at 2011-04-28 17:21:09 -0500
+
+ActionController::RoutingError (No route matches "/users/images/abajoRedondo.png"):
+  
+
+Rendered /home/alex/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (7.3ms)
+
+
+Started GET "/users/images/abajoRedondo.png" for 127.0.0.1 at 2011-04-28 17:21:10 -0500
+
+ActionController::RoutingError (No route matches "/users/images/abajoRedondo.png"):
+  
+
+Rendered /home/alex/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (5.6ms)
+
+
+Started GET "/users/images/favicon.png" for 127.0.0.1 at 2011-04-28 17:21:10 -0500
+
+ActionController::RoutingError (No route matches "/users/images/favicon.png"):
+  
+
+Rendered /home/alex/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (6.9ms)
+
+
+Started GET "/users/images/favicon.png" for 127.0.0.1 at 2011-04-28 17:21:10 -0500
+
+ActionController::RoutingError (No route matches "/users/images/favicon.png"):
+  
+
+Rendered /home/alex/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (5.7ms)
