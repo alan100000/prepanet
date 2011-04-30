@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 		  :nombre_del_seguro, :compania, :numero_de_poliza, :fecha_de_vencimiento, :contacto_emergencia, :parentesco, :telefono_emergencia
 		  :remember_me
 		  
-  #RELACIONES SEXUALES
+  #RELACIONES
   has_one :major
    
 

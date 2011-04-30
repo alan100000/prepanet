@@ -1,5 +1,9 @@
 Prepanet::Application.routes.draw do
 
+  get "users/show"
+
+  get "users/index"
+
   resources :questions
 
   get "admin/index"
