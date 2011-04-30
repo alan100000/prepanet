@@ -94,7 +94,7 @@
 	  <%= f.text_field :numero_de_poliza %></p>
 
 	  <p><%= f.label :fecha_de_vencimiento %><br />
-	  <%= calendar_date_select :fecha_de_vencimiento, :last_follow_up_at, :popup => :force %></p>
+	  <%= f.calendar_date_select :fecha_de_vencimiento, :popup => :force %></p>
 
 	  <p><%= f.label :contacto_emergencia, 'En caso de emergencia llamar a' %><br />
 	  <%= f.text_field :contacto_emergencia %></p>
