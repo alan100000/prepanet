@@ -1,0 +1,37 @@
+<%= form_for(@quiz) do |f| %>
+  <% if @quiz.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@quiz.errors.count, "error") %> prohibited this quiz from being saved:</h2>
+
+      <ul>
+        <% @quiz.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </div>  
+  <div class="field">
+    <%= f.fields_for :answered_questions do |builder| %>
+      <p>
+      <% aquestion = builder.object %>
+      <% index = 1 %> 
+      <%= aquestion.question.content %> <br />
+      <%= builder.hidden_field :question_id, :value => "#{aquestion.question.id}" %>
+      <% aquestion.question.answers.each do |a| %>
+        <% #radio_button :answered_question, :answer_chosen, "#{index}" %>
+        <%= builder.radio_button :answer_chosen, "#{a.option}" %>
+        <%= a.content %> <br />
+        <% index += 1 %> 
+      <% end %>
+      </p>
+    <% end %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
