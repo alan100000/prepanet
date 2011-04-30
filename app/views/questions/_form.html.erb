@@ -22,6 +22,7 @@
         <%= builder.label :content, "Answer" %><br />
         <%= builder.text_field :content %>
         <%= builder.label :option, "Correcta" %>
+        <%= builder.hidden_field :option, :value => "#{index}" %>
         <%= radio_button :question, :correct_answer, "#{index}" %>
         <% index += 1 %> 
       </p>

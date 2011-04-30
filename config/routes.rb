@@ -1,5 +1,7 @@
 Prepanet::Application.routes.draw do
 
+  resources :quizzes
+
   resources :questions
 
   get "admin/index"
