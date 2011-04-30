@@ -10,14 +10,15 @@ class User < ActiveRecord::Base
 		  :telefono_particular, :telefono_celular , :email_personal,
 		  :promedio_global_acumulado, :promedio_del_semestre_anterior,
 		  :nombre_del_seguro, :compania, :numero_de_poliza, :fecha_de_vencimiento, :contacto_emergencia, :parentesco, :telefono_emergencia,
-		  :major_id,
+		  :major_id, :materia_1, :materia_2, :materia_3,
 		  :remember_me
 		  
   #RELACIONES
   has_one :major
+  has_many :courses
    
 
-  validates :password_confirmation, :presence => true
+  validates :password_confirmation, :presence => true, :on=>:create
 
   validates :nombre, :presence => true
   validates :apellido_paterno, :presence => true

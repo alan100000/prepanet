@@ -2,15 +2,19 @@
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
+	<%carrera=Major.find(current_user.major_id)%>
 
-  <p><%= f.label :email %><br />
-  <%= f.text_field :email %></p>
-
-  <p><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password %></p>
-
-  <p><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></p>
+   <p><%= f.label :materia_1 %><br />
+  		<%= f.select("materia_1", Course.where(:area_id=>carrera.area_1||carrera.area_2||carrera.area_3||carrera.area_4||carrera.area_5).collect{|c| [c.nombre, c.id]})%>
+   </p>
+   
+   <p><%= f.label :materia_2 %><br />
+  		<%= f.select("materia_2", Course.where(:area_id=>carrera.area_1||carrera.area_2||carrera.area_3||carrera.area_4||carrera.area_5).collect{|c| [c.nombre, c.id]})%>
+   </p>
+   
+   <p><%= f.label :materia_3 %><br />
+  		<%= f.select("materia_3", Course.where(:area_id=>carrera.area_1||carrera.area_2||carrera.area_3||carrera.area_4||carrera.area_5).collect{|c| [c.nombre, c.id]})%>
+   </p>
 
   <p><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
   <%= f.password_field :current_password %></p>
