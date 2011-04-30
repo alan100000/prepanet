@@ -13777,3 +13777,48 @@ ActionController::RoutingError (No route matches "/quizzes/2/images/favicon.png"
   
 
 Rendered /Users/eduardo/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.1ms)
+
+
+Started GET "/quizzes/new" for 127.0.0.1 at 2011-04-29 20:04:19 -0500
+  Processing by QuizzesController#new as HTML
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "questions"[0m
+  [1m[35mQuestion Load (0.1ms)[0m  SELECT "questions".* FROM "questions" LIMIT 1 OFFSET 6
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "questions"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "questions".* FROM "questions" LIMIT 1 OFFSET 6
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "questions"[0m
+  [1m[35mQuestion Load (0.2ms)[0m  SELECT "questions".* FROM "questions" LIMIT 1 OFFSET 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "questions"[0m
+  [1m[35mQuestion Load (0.1ms)[0m  SELECT "questions".* FROM "questions" LIMIT 1 OFFSET 7
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "questions"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "questions".* FROM "questions" LIMIT 1 OFFSET 7
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "questions"[0m
+  [1m[35mQuestion Load (0.1ms)[0m  SELECT "questions".* FROM "questions" LIMIT 1 OFFSET 0
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "questions"[0m
+  [1m[35mQuestion Load (0.1ms)[0m  SELECT "questions".* FROM "questions" LIMIT 1 OFFSET 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "questions"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "questions".* FROM "questions" LIMIT 1 OFFSET 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "questions"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "questions".* FROM "questions" LIMIT 1 OFFSET 7
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "questions"[0m
+  [1m[35mQuestion Load (0.2ms)[0m  SELECT "questions".* FROM "questions" LIMIT 1 OFFSET 1
+  [1m[36mAnswer Load (0.4ms)[0m  [1mSELECT "answers".* FROM "answers" WHERE ("answers".question_id = 7)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "answers".* FROM "answers" WHERE ("answers".question_id = 7)
+  [1m[36mAnswer Load (0.3ms)[0m  [1mSELECT "answers".* FROM "answers" WHERE ("answers".question_id = 4)[0m
+  [1m[35mAnswer Load (0.2ms)[0m  SELECT "answers".* FROM "answers" WHERE ("answers".question_id = 8)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "answers".* FROM "answers" WHERE ("answers".question_id = 8)[0m
+  [1m[35mAnswer Load (0.4ms)[0m  SELECT "answers".* FROM "answers" WHERE ("answers".question_id = 1)
+  [1m[36mAnswer Load (0.2ms)[0m  [1mSELECT "answers".* FROM "answers" WHERE ("answers".question_id = 3)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "answers".* FROM "answers" WHERE ("answers".question_id = 4)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "answers".* FROM "answers" WHERE ("answers".question_id = 8)[0m
+  [1m[35mAnswer Load (0.3ms)[0m  SELECT "answers".* FROM "answers" WHERE ("answers".question_id = 2)
+Rendered quizzes/_form.html.erb (43.9ms)
+Rendered quizzes/new.html.erb within layouts/application (164.9ms)
+Completed 200 OK in 416ms (Views: 172.8ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/quizzes/images/abajoRedondo.png" for 127.0.0.1 at 2011-04-29 20:04:20 -0500
+
+ActionController::RoutingError (No route matches "/quizzes/images/abajoRedondo.png"):
+  
+
+Rendered /Users/eduardo/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
