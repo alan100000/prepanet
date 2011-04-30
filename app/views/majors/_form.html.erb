@@ -20,18 +20,29 @@
     <%= f.text_field :sigla %>
   </div>
   
-  
+  <div class="field">
+		<%= f.label 'area_1' %><br />
+		<%= f.select("area_1", Area.all.collect{|a| [a.nombre, a.id]})%>
+  </div>
   
   <div class="field">
-    <%= f.label 'area' %><br />
-    <%
-        @nombres = []
-        @areas=Area.find(:all, :order => "nombre")
-        @areas.each do |area|
-            @nombres << area.nombre
-        end
-    %>
-    <%= select_tag 'area' ,options_for_select(@nombres) ,:multiple => true%>
+		<%= f.label 'area_2' %><br />
+		<%= f.select("area_2", Area.all.collect{|a| [a.nombre, a.id]},{:include_blank=>true})%>
+  </div>
+    
+  <div class="field">
+		<%= f.label 'area_3' %><br />
+		<%= f.select("area_3", Area.all.collect{|a| [a.nombre, a.id]},{:include_blank=>true})%>
+  </div>
+    
+  <div class="field">
+		<%= f.label 'area_4' %><br />
+		<%= f.select("area_4", Area.all.collect{|a| [a.nombre, a.id]},{:include_blank=>true})%>
+  </div>
+    
+  <div class="field">
+		<%= f.label 'area_5' %><br />
+		<%= f.select("area_5", Area.all.collect{|a| [a.nombre, a.id]},{:include_blank=>true})%>
   </div>
   
   <div class="actions">

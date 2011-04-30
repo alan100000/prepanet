@@ -14,12 +14,15 @@ class PeriodsController < ApplicationController
   # GET /periods/1.xml
   def show
     @period = Period.find(params[:id])
+    @usuarios = User.where(:period_id => @period.id).order(:matricula)
 
     respond_to do |format|
       format.html # show.html.erb
+      format.xls { send_data @usuarios.to_xls }
       format.xml  { render :xml => @period }
     end
   end
+  
 
   # GET /periods/new
   # GET /periods/new.xml

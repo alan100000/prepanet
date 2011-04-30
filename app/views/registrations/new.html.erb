@@ -52,6 +52,11 @@
   <div class="registro">
   	  <p>PENDIENTE CARRERA
   	  </p>
+  	  
+  	  <p>
+		<%= f.label 'carrera' %><br />
+		<%= f.select("major_id", Major.all.collect{|m| [m.nombre, m.id]})%>
+  	  </p>
 
 	  <p><%= f.label :semestre %><br />
 	    <select name="semestre" id="semestre">
@@ -73,12 +78,6 @@
 
 	  <p><%= f.label :promedio_del_semestre_anterior %><br />
 	  <%= f.text_field :promedio_del_semestre_anterior %></p>
-
-	  <p>PENDIENTE Materia1</p>
-
-	  <p>PENDIENTE Materia2</p>
-
-	  <p>PENDIENTE Materia3</p>
 
   </div>
 
