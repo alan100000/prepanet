@@ -1,12 +1,12 @@
 Prepanet::Application.routes.draw do
 
-<<<<<<< HEAD
+
   get "users/show"
 
   get "users/index"
-=======
+  
   resources :quizzes
->>>>>>> 8259c8db85ec9c50559f25e12e11788c99ffa839
+
 
   resources :questions
 

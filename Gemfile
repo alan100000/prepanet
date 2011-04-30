@@ -10,6 +10,8 @@ gem 'fastercsv'
 #Servidor
 gem 'heroku'
 
+gem 'taps'
+
 #Control de Usuarios
 gem 'devise'
 gem 'cancan'
