@@ -22,29 +22,36 @@ ActiveRecord::Schema.define(:version => 20110430202415) do
   end
 
   create_table "answers", :force => true do |t|
-    t.integer  "question_id"
-    t.string   "content"
-    t.integer  "option"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer   "question_id"
+    t.string    "content"
+    t.integer   "option"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "areas", :force => true do |t|
-    t.string   "nombre"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "nombre"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "courses", :force => true do |t|
-    t.string   "nombre"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "area_id"
+    t.string    "nombre"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.integer   "area_id"
   end
 
   create_table "majors", :force => true do |t|
-    t.string   "nombre"
-    t.string   "sigla"
+    t.string    "nombre"
+    t.string    "sigla"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+  end
+
+  create_table "periods", :force => true do |t|
+    t.string   "mes"
+    t.integer  "ano"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "area_1"
@@ -62,10 +69,10 @@ ActiveRecord::Schema.define(:version => 20110430202415) do
   end
 
   create_table "questions", :force => true do |t|
-    t.text     "content"
-    t.integer  "correct_answer"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.text      "content"
+    t.integer   "correct_answer"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "quizzes", :force => true do |t|
@@ -75,40 +82,40 @@ ActiveRecord::Schema.define(:version => 20110430202415) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                                         :default => "", :null => false
-    t.string   "encrypted_password",             :limit => 128, :default => "", :null => false
-    t.string   "password_salt",                                 :default => "", :null => false
-    t.string   "reset_password_token"
-    t.string   "remember_token"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                                 :default => 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "nombre"
-    t.string   "apellido_paterno"
-    t.string   "apellido_materno"
-    t.string   "sexo"
-    t.string   "matricula"
-    t.string   "telefono_particular"
-    t.string   "telefono_celular"
-    t.string   "email_personal"
-    t.integer  "promedio_global_acumulado"
-    t.integer  "promedio_del_semestre_anterior"
-    t.string   "nombre_del_seguro"
-    t.string   "compania"
-    t.string   "numero_de_poliza"
-    t.date     "fecha_de_vencimiento"
-    t.string   "contacto_emergencia"
-    t.string   "parentesco"
-    t.string   "telefono_emergencia"
-    t.integer  "major_id"
-    t.boolean  "admin"
-    t.integer  "semestre"
-    t.integer  "period_id"
+    t.string    "email",                                         :default => "", :null => false
+    t.string    "encrypted_password",             :limit => 128, :default => "", :null => false
+    t.string    "password_salt",                                 :default => "", :null => false
+    t.string    "reset_password_token"
+    t.string    "remember_token"
+    t.timestamp "remember_created_at"
+    t.integer   "sign_in_count",                                 :default => 0
+    t.timestamp "current_sign_in_at"
+    t.timestamp "last_sign_in_at"
+    t.string    "current_sign_in_ip"
+    t.string    "last_sign_in_ip"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.string    "nombre"
+    t.string    "apellido_paterno"
+    t.string    "apellido_materno"
+    t.string    "sexo"
+    t.string    "matricula"
+    t.string    "telefono_particular"
+    t.string    "telefono_celular"
+    t.string    "email_personal"
+    t.integer   "promedio_global_acumulado"
+    t.integer   "promedio_del_semestre_anterior"
+    t.string    "nombre_del_seguro"
+    t.string    "compania"
+    t.string    "numero_de_poliza"
+    t.date      "fecha_de_vencimiento"
+    t.string    "contacto_emergencia"
+    t.string    "parentesco"
+    t.string    "telefono_emergencia"
+    t.integer   "major_id"
+    t.boolean   "admin"
+    t.integer   "semestre"
+    t.integer   "period_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
