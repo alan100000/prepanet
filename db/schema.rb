@@ -10,10 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(:version => 20110430010516) do
-=======
-ActiveRecord::Schema.define(:version => 20110428020548) do
+ActiveRecord::Schema.define(:version => 20110430012903) do
 
   create_table "answered_questions", :force => true do |t|
     t.integer  "question_id"
@@ -23,7 +20,6 @@ ActiveRecord::Schema.define(:version => 20110428020548) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
->>>>>>> 8259c8db85ec9c50559f25e12e11788c99ffa839
 
   create_table "answers", :force => true do |t|
     t.integer  "question_id"
@@ -100,7 +96,6 @@ ActiveRecord::Schema.define(:version => 20110428020548) do
     t.integer  "major_id"
     t.boolean  "admin"
     t.integer  "semestre"
-    t.string   "periodo"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
