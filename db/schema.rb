@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110430014020) do
+ActiveRecord::Schema.define(:version => 20110430202415) do
 
   create_table "answered_questions", :force => true do |t|
     t.integer  "question_id"
@@ -47,6 +47,11 @@ ActiveRecord::Schema.define(:version => 20110430014020) do
     t.string   "sigla"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "area_1"
+    t.integer  "area_2"
+    t.integer  "area_3"
+    t.integer  "area_4"
+    t.integer  "area_5"
   end
 
   create_table "periods", :force => true do |t|

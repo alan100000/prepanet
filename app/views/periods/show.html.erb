@@ -1,14 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Mes:</b>
-  <%= @period.mes %>
-</p>
+<table>
+  <tr>
+    <th>Matricula</th>
+    <th>Nombre</th>
+    <th>Correo</th>
+    <th>Semestre</th>
+    <th>Carrera</th>
+    <th></th>
+  </tr>
 
-<p>
-  <b>Ano:</b>
-  <%= @period.ano %>
-</p>
+<% @usuarios.each do |user| %>
+  <tr>
+    <td><%= user.matricula %></td>
+    <td><%= user.nombre %>&nbsp;<%= user.apellido_paterno %>&nbsp;<%= user.apellido_materno %></td>
+    <td><%= user.email %></td>
+    <td><%= user.semestre %></td>
+    <td><%= user.major_id %></td>
+  </tr>
+<% end %>
+</table>
 
 
 <%= link_to 'Edit', edit_period_path(@period) %> |
