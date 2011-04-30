@@ -4,9 +4,8 @@ Prepanet::Application.routes.draw do
   get "users/show"
 
   get "users/index"
-  
-  resources :quizzes
 
+  resources :quizzes
 
   resources :questions
 
