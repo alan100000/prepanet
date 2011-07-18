@@ -103,7 +103,7 @@ ActiveRecord::Schema.define(:version => 20110501230326) do
     t.string   "nombre_del_seguro"
     t.string   "compania"
     t.string   "numero_de_poliza"
-    t.date     "fecha_de_vencimiento"
+    t.date     "fecha_de_vencimiento",           :limit => 255
     t.string   "contacto_emergencia"
     t.string   "parentesco"
     t.string   "telefono_emergencia"

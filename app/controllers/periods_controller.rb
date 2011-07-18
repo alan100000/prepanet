@@ -15,10 +15,11 @@ class PeriodsController < ApplicationController
   def show
     @period = Period.find(params[:id])
     @usuarios = User.where(:period_id => @period.id).order(:matricula)
+    @usua = User.select('matricula, nombre, apellido_paterno, apellido_materno, email, email_personal, telefono_particular, telefono_celular, major_id.sigla, materia_1.area_id.nombre, materia_2.area_id.nombre, materia_3.narea_id.nombre, semestre').where(:period_id => @period.id).order(:matricula)
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xls { send_data @usuarios.to_xls }
+      format.xls { send_data @usua.to_xls }
       format.xml  { render :xml => @period }
     end
   end

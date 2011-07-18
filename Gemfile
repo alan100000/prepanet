@@ -7,6 +7,7 @@ gem 'rails', '3.0.4'
 
 #Export
 gem 'fastercsv'
+gem 'spreadsheet'
 #Servidor
 gem 'heroku'
 
