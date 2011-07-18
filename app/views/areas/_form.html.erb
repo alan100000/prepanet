@@ -1,7 +1,7 @@
 <%= form_for(@area) do |f| %>
   <% if @area.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@area.errors.count, "error") %> No se puede grabar este curso:</h2>
+      <h2><%= pluralize(@area.errors.count, "error") %> No se puede grabar esta área:</h2>
 
       <ul>
       <% @area.errors.full_messages.each do |msg| %>

@@ -1,8 +1,8 @@
-<h1>Listing quizzes</h1>
+<h1>Quizzes</h1>
 
 <table>
   <tr>
-    <th>User</th>
+    <th>Usuario</th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,13 +11,13 @@
 <% @quizzes.each do |quiz| %>
   <tr>
     <td><%= quiz.user_id %></td>
-    <td><%= link_to 'Show', quiz %></td>
-    <td><%= link_to 'Edit', edit_quiz_path(quiz) %></td>
-    <td><%= link_to 'Destroy', quiz, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Mostrar', quiz %></td>
+    <td><%= link_to 'Editar', edit_quiz_path(quiz) %></td>
+    <td><%= link_to 'Destruir', quiz, :confirm => 'Estas seguro(a)?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Quiz', new_quiz_path %>
+<%= link_to 'Nuevo Quiz', new_quiz_path %>

@@ -18,26 +18,26 @@ class User < ActiveRecord::Base
   has_many :courses
    
 
-  validates :password_confirmation, :presence => true, :on=>:create
+  validates_presence_of :password_confirmation, :on=>:create, :message => ": Contrasena invalida"
 
-  validates :nombre, :presence => true
-  validates :apellido_paterno, :presence => true
-  validates :apellido_materno, :presence => true
-  validates :sexo, :presence => true
-  validates :matricula, :presence => true
+  validates_presence_of :nombre, :message => ": Falta ingresar tu nombre"
+  validates_presence_of :apellido_paterno, :message => ": Falta ingresar tu apellido paterno"
+  validates_presence_of :apellido_materno, :message => ": Falta ingresar tu apellido materno"
+  validates_presence_of :sexo, :message => ": Falta seleccionar tu sexo"
+  validates_presence_of :matricula, :message => ": Falta ingresar tu matricula"
 
-  validates :telefono_particular, :presence => true
-  validates :telefono_celular, :presence => true
-  validates :email_personal, :presence => true, :uniqueness => true, :format => { :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i }
+  validates_presence_of :telefono_particular, :message => ": Falta ingresar tu telefono particular"
+  validates_presence_of :telefono_celular, :message => ": Falta ingresar tu telefono celular"
+  validates_presence_of :email_personal, :uniqueness => true, :format => { :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i }, :message => ": Email invalido"
 
-  validates :promedio_global_acumulado, :presence => true, :numericality => true
-  validates :promedio_del_semestre_anterior, :presence => true, :numericality => true
+  validates_presence_of :promedio_global_acumulado, :numericality => true, :message => ": Debe haber un valor numerico"
+  validates_presence_of :promedio_del_semestre_anterior, :numericality => true, :message => ": Debe haber un valor numerico"
 
-  validates :nombre_del_seguro, :presence => true
-  validates :compania, :presence => true
-  validates :numero_de_poliza, :presence => true
-  validates :fecha_de_vencimiento, :presence => true
-  validates :contacto_emergencia, :presence => true
-  validates :parentesco, :presence => true
-  validates :telefono_emergencia, :presence => true
+  validates_presence_of :nombre_del_seguro, :message => ": Faltan datos de tu seguro"
+  validates_presence_of :compania, :message => ": Faltan datos de tu seguro"
+  validates_presence_of :numero_de_poliza, :message => ": Faltan datos de tu seguro"
+  validates_presence_of :fecha_de_vencimiento, :message => ": Faltan datos de tu seguro"
+  validates_presence_of :contacto_emergencia, :message => ": Falta ingresar contacto"
+  validates_presence_of :parentesco, :message => ": Falta ingresar el parentesco"
+  validates_presence_of :telefono_emergencia, :message => ": Falta ingresar telefono de emergencia"
 end

@@ -1,7 +1,7 @@
 <%= form_for(@period) do |f| %>
   <% if @period.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@period.errors.count, "error") %> prohibited this period from being saved:</h2>
+      <h2><%= pluralize(@period.errors.count, "error") %> No se puede grabar este periodo:</h2>
 
       <ul>
       <% @period.errors.full_messages.each do |msg| %>

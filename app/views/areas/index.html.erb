@@ -1,4 +1,4 @@
-<h1>Listing areas</h1>
+<h1>Áreas</h1>
 
 <table>
   <tr>
@@ -11,13 +11,13 @@
 <% @areas.each do |area| %>
   <tr>
     <td><%= area.nombre %></td>
-    <td><%= link_to 'Show', area %></td>
-    <td><%= link_to 'Edit', edit_area_path(area) %></td>
-    <td><%= link_to 'Destroy', area, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Mostrar', area %></td>
+    <td><%= link_to 'Editar', edit_area_path(area) %></td>
+    <td><%= link_to 'Destruir', area, :confirm => 'Estas seguro(a)?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Area', new_area_path %>
+<%= link_to 'Nueva Área', new_area_path %>

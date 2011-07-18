@@ -1,4 +1,4 @@
-<h1>Listing majors</h1>
+<h1>Carreras</h1>
 
 <table>
   <tr>
@@ -13,13 +13,13 @@
   <tr>
     <td><%= major.nombre %></td>
     <td><%= major.sigla %></td>
-    <td><%= link_to 'Show', major %></td>
-    <td><%= link_to 'Edit', edit_major_path(major) %></td>
-    <td><%= link_to 'Destroy', major, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Mostrar', major %></td>
+    <td><%= link_to 'Editar', edit_major_path(major) %></td>
+    <td><%= link_to 'Destruir', major, :confirm => 'Estas seguro(a)?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Major', new_major_path %>
+<%= link_to 'Nueva Carrera', new_major_path %>
