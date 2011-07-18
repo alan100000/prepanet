@@ -1,6 +1,8 @@
 Prepanet::Application.routes.draw do
 
 
+  get "term/index"
+
   resources :periods
 
   get "users/show"
@@ -14,6 +16,8 @@ Prepanet::Application.routes.draw do
   get "admin/index"
 
   resources :courses
+  
+  match 'lista', :to =>'courses#lista'
 
   resources :areas
 

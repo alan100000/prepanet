@@ -1,6 +1,8 @@
 class QuizzesController < ApplicationController
   # GET /quizzes
   # GET /quizzes.xml
+load_and_authorize_resource
+  
   def index
     @quizzes = Quiz.all
 

@@ -50,9 +50,6 @@
 
   <h3>Datos Escolares</h3>
   <div class="registro">
-  	  <p>PENDIENTE CARRERA
-  	  </p>
-  	  
   	  <p>
 		<%= f.label 'carrera' %><br />
 		<%= f.select("major_id", Major.all.collect{|m| [m.nombre, m.id]})%>

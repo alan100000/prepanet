@@ -41,17 +41,24 @@ div.redondo{
 }
 
 div.menu{
+	width:100%;
 	margin-top:0;
 	border-top:double;
 	border-top-color:#5bb37a;
 	border-bottom:double;
 	border-bottom-color:#5bb37a;
-	background-color:#green;
 	text-align:center;
 }
 
+table.menu{
+	width:100%;
+}
+
 td.menu{
-	color:red;
+	border-left: 1px solid;
+	border-right: 1px solid;
+	border-left-color:#5bb37a;
+	border-right-color:#5bb37a;
 }
 
 div.centro{
@@ -73,7 +80,6 @@ div.contenido{
 div.registro{
 	border-top-style:double;
 	border-top-color:#5bb37a;
-	
 }
 
 div.cont {
