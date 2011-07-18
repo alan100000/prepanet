@@ -1,6 +1,8 @@
 class QuizzesController < ApplicationController
   # GET /quizzes
   # GET /quizzes.xml
+load_and_authorize_resource
+  
   def index
     @quizzes = Quiz.all
 
@@ -54,6 +56,9 @@ class QuizzesController < ApplicationController
     total = 0
     correct = 0
     @quiz = Quiz.new(params[:quiz])
+    usuario=current_user
+    usuario.completo='1'
+    usuario.save
 
     respond_to do |format|
       if @quiz.save
@@ -109,4 +114,11 @@ class QuizzesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def completado
+  end
+  
+  def desconocido
+  end
+  
 end

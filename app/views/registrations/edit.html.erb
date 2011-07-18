@@ -16,14 +16,8 @@
   		<%= f.select("materia_3", Course.where(:area_id=>carrera.area_1||carrera.area_2||carrera.area_3||carrera.area_4||carrera.area_5).collect{|c| [c.nombre, c.id]})%>
    </p>
 
-  <p><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+  <p><%= f.label :current_password %> <i>Por motivos de seguridad es necesario que introduzcas tu contraseña.</i><br />
   <%= f.password_field :current_password %></p>
 
-  <p><%= f.submit "Actualizar" %></p>
+  <p><%= f.submit "Seleccionar Materias" %></p>
 <% end %>
-
-<h3>Cancelar mi cuenta</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
-
-<%= link_to "Back", :back %>

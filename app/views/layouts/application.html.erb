@@ -10,55 +10,76 @@
 </head>
 <body>
 	<div class="redondo">
-	    	<img src="/images/arribaRedondo.png" />
+	    	<%= image_tag ("arribaRedondo.png")%>
 	</div>
 	<div class="centro">
 		<img src="/images/bannerInicio.png" class="banner"/>
 		<div class="menu">
 			<table class="menu">
 				<tr class="menu">
-					<% if (!user_signed_in?) %>
-						<td class="menu">
-							<%= link_to "Registro", new_user_registration_path %>
-						</td>
-					<% end %>
-					<% if user_signed_in? %>
-						<td class="menu">Quiz</td>
-					<% end %>
 					<td class="menu">
-						<% if user_signed_in? %>
-							<%= link_to "Editar Cuenta", edit_user_registration_path %>
-						<% else %>
-							<%= link_to "Iniciar Sesion", new_user_session_path %>
-						<% end %>
+						<%= link_to "Inicio", home_index_path %>
 					</td>
-					<% if can? :all, Area %>
+					
+					<% if !user_signed_in?%>
+					<td class="menu">
+						<%= link_to "Ingresar", new_user_session_path %>
+					</td>
+					<% end %>
+					
+					<% if !user_signed_in? %>
+					<td class="menu">
+						<%= link_to "Registro", new_user_registration_path %>
+					</td>
+					<% end %>
+					
+					<td class="menu">
+					<% if user_signed_in?%>
+						<%= link_to "Materias", edit_user_registration_path %>
+					<%else %>
+						<%= link_to "Materias", lista_path%>
+					<%end%>
+					</td>
+					
+					<td class="menu">
+						<%if !user_signed_in?%>
+							<%= link_to "Quiz", desconocido_path%>
+						<%else%>
+							<%if current_user.completo%>
+								<%= link_to "Quiz", completado_path%>
+							<%else%>
+								<%= link_to "Quiz", new_quiz_path %>
+							<%end%>
+						<%end%>
+					</td>
+					
+					<td class="menu">
+						<%= link_to "Reglamento", term_index_path %>
+					</td>
+					<%if user_signed_in?%>
+					<% if current_user.admin?%>
 						<td class="menu">
 							<%= link_to "Administracion", admin_index_path %>
 						</td>
 					<% end %>
+					<% end %>
+					<% if user_signed_in? %>
+					<td class="menu">	
+						<%= link_to "Cerrar Sesion", destroy_user_session_path %>
+					</td>
+					<% end %>
 				</tr>
-			</table>
-			<% if user_signed_in? %>
-				<table class="menu">
-					<tr>
-						<td class="menu">	
-							Hola <b><%= current_user.nombre %></b>
-						</td>
-						<td class="menu">
-							<%= link_to "Cerrar Sesion", destroy_user_session_path %>
-						</td>
-					</tr>
-				</table>
-			<% end %>
-        	</div>
+			</table> 
+		</div>
+		
+		
 		<div class="contenido">
 		<br/>
 		<%= yield %>
 		</div>
 	</div>
 	<div class="redondo">
-	    	<img src="images/abajoRedondo.png" />
+	    	<%= image_tag ("abajoRedondo.png")%>
 	</div>
 </body>
 </html>

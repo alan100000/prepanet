@@ -88,4 +88,9 @@ load_and_authorize_resource
       format.xml  { head :ok }
     end
   end
+  
+  def lista
+  
+  end
+  
 end
