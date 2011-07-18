@@ -33,19 +33,26 @@
 					</td>
 					<% end %>
 					
+					<td class="menu">
 					<% if user_signed_in?%>
-					<td class="menu">
 						<%= link_to "Materias", edit_user_registration_path %>
-					</td>
 					<%else %>
-					<td class="menu">
 						<%= link_to "Materias", lista_path%>
-					</td>
 					<%end%>
+					</td>
 					
 					<td class="menu">
-						<%= link_to "Quiz", new_quiz_path %>
+						<%if !user_signed_in?%>
+							<%= link_to "Quiz", desconocido_path%>
+						<%else%>
+							<%if current_user.completo%>
+								<%= link_to "Quiz", completado_path%>
+							<%else%>
+								<%= link_to "Quiz", new_quiz_path %>
+							<%end%>
+						<%end%>
 					</td>
+					
 					<td class="menu">
 						<%= link_to "Reglamento", term_index_path %>
 					</td>

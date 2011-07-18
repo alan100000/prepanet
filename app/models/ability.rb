@@ -7,6 +7,8 @@ class Ability
     else
       can :manage, User, :user_id => user.id
       can :create, Quiz
+      can :completado, Quiz
+      can :desconocido, Quiz
       can :lista , Course
     end
   end

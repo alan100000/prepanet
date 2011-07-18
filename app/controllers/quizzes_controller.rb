@@ -56,6 +56,9 @@ load_and_authorize_resource
     total = 0
     correct = 0
     @quiz = Quiz.new(params[:quiz])
+    usuario=current_user
+    usuario.completo='1'
+    usuario.save
 
     respond_to do |format|
       if @quiz.save
@@ -111,4 +114,11 @@ load_and_authorize_resource
       format.xml  { head :ok }
     end
   end
+  
+  def completado
+  end
+  
+  def desconocido
+  end
+  
 end
