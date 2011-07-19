@@ -103,3 +103,12 @@ h3{
 span.sancion{
     color:red;
 }
+
+td.menu a{
+    display:block;
+}
+
+td.menu a:hover{
+    background-color:#1b7899;
+    color: white;
+}

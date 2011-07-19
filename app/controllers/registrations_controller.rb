@@ -20,6 +20,8 @@ class RegistrationsController < Devise::RegistrationsController
         @user = User.new(params[:user])
         semes = params[:semestre]
             @user.semestre=semes
+         periodo = Period.last
+         @user.period_id = periodo.id
 
         respond_to do |format|
           if @user.save
