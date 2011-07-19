@@ -80,7 +80,7 @@ class PeriodsController < ApplicationController
 		i = i+1
 	end
 blob = StringIO.new('')
-	book.write './public/excel.xls'
+	book.write './tmp/excel.xls'
 
 
     respond_to do |format|
