@@ -20,19 +20,19 @@
 					<td class="menu">
 						<%= link_to "Inicio", home_index_path %>
 					</td>
-					
+
 					<% if !user_signed_in?%>
 					<td class="menu">
 						<%= link_to "Ingresar", new_user_session_path %>
 					</td>
 					<% end %>
-					
+
 					<% if !user_signed_in? %>
 					<td class="menu">
 						<%= link_to "Registro", new_user_registration_path %>
 					</td>
 					<% end %>
-					
+
 					<td class="menu">
 					<% if user_signed_in?%>
 						<%= link_to "Materias", edit_user_registration_path %>
@@ -40,7 +40,7 @@
 						<%= link_to "Materias", lista_path%>
 					<%end%>
 					</td>
-					
+
 					<td class="menu">
 						<%if !user_signed_in?%>
 							<%= link_to "Quiz", desconocido_path%>
@@ -52,7 +52,7 @@
 							<%end%>
 						<%end%>
 					</td>
-					
+
 					<td class="menu">
 						<%= link_to "Reglamento", term_index_path %>
 					</td>
@@ -64,20 +64,29 @@
 					<% end %>
 					<% end %>
 					<% if user_signed_in? %>
-					<td class="menu">	
+					<td class="menu">
 						<%= link_to "Cerrar Sesion", destroy_user_session_path %>
 					</td>
 					<% end %>
 				</tr>
-			</table> 
+			</table>
 		</div>
-		
-		
+
+
 		<div class="contenido">
 		<br/>
 		<%= yield %>
 		</div>
 	</div>
+	<div id="footer">
+	  <div id="minfooter">
+	  <hr />
+	  Contáctanos:	  prepanet.mty@itesm.mx
+	  <br />
+	  <a href="http://www.itesm.mx/prepanet/">Prepanet Nacional</a>
+	  </div>
+	</div>
+
 	<div class="redondo">
 	    	<%= image_tag ("abajoRedondo.png")%>
 	</div>

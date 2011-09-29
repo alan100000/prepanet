@@ -15,7 +15,7 @@
     <%= f.label :nombre %><br />
     <%= f.text_field :nombre %>
   </div>
-  
+
   <div class="field">
     <%= f.label 'area' %><br />
     <%
@@ -27,10 +27,10 @@
     %>
     <%= select_tag 'area', options_for_select(@nombres)%>
   </div>
-  
-  
+
+
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Crear curso"%>
   </div>
 <% end %>

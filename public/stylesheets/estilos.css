@@ -88,7 +88,7 @@ div.cont {
 	position:relative;
 	background-color: pink;
 
-} 
+}
 
 h1{
 	display:inline;
@@ -96,7 +96,7 @@ h1{
 }
 
 h3{
-	display:inline;	
+	display:inline;
 	color:#39a68c;
 }
 
@@ -111,4 +111,21 @@ td.menu a{
 td.menu a:hover{
     background-color:#1b7899;
     color: white;
+}
+
+#footer{
+  max-width: 900px;
+  min-width: 900px;
+  width: 80%;
+  margin: 0px auto;
+  background-color:white;
+  position:relative;
+}
+#minfooter{
+  margin:0px 20px;
+}
+
+hr{
+  margin:0px;
+  padding:0px;
 }

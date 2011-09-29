@@ -16,11 +16,11 @@ Prepanet::Application.routes.draw do
   get "admin/index"
 
   resources :courses
-  
+
   match 'lista', :to =>'courses#lista'
-  
+
   match 'desconocido', :to =>'quizzes#desconocido'
-  
+
   match 'completado', :to =>'quizzes#completado'
 
   resources :areas

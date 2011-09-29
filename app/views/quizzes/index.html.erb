@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th>Calificación</th>
     <th>Usuario</th>
     <th></th>
     <th></th>
@@ -10,7 +11,8 @@
 
 <% @quizzes.each do |quiz| %>
   <tr>
-    <td><%= quiz.user_id %></td>
+    <td><%= "#{quiz.num_correct} bien de #{quiz.num_total}" %></td>
+    <td><%= "#{quiz.user.try(:nombre)} #{quiz.user.try(:apellido_paterno)}, #{quiz.user.try(:matricula)}, #{quiz.user.email} " %></td>
     <td><%= link_to 'Mostrar', quiz %></td>
     <td><%= link_to 'Editar', edit_quiz_path(quiz) %></td>
     <td><%= link_to 'Destruir', quiz, :confirm => 'Estas seguro(a)?', :method => :delete %></td>

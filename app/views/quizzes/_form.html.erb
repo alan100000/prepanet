@@ -14,25 +14,25 @@
   <div class="field" style="visibility:hidden">
     <%= f.label :user_id %><br />
     <%= f.text_field :user_id, :value=>current_user.id %>
-  </div> 
-  
+  </div>
+
   <div class="field">
     <%= f.fields_for :answered_questions do |builder| %>
       <p>
       <% aquestion = builder.object %>
-      <% index = 1 %> 
+      <% index = 1 %>
       <%= aquestion.question.content %> <br />
       <%= builder.hidden_field :question_id, :value => "#{aquestion.question.id}" %>
       <% aquestion.question.answers.each do |a| %>
         <% #radio_button :answered_question, :answer_chosen, "#{index}" %>
         <%= builder.radio_button :answer_chosen, "#{a.option}" %>
         <%= a.content %> <br />
-        <% index += 1 %> 
+        <% index += 1 %>
       <% end %>
       </p>
     <% end %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Presentar" %>
   </div>
 <% end %>
