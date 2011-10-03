@@ -2,7 +2,7 @@ class QuizzesController < ApplicationController
   # GET /quizzes
   # GET /quizzes.xml
 load_and_authorize_resource
-  
+
   def index
     @quizzes = Quiz.all
 
@@ -28,7 +28,7 @@ load_and_authorize_resource
   def new
     @quiz = Quiz.new
     @ques = Question.random
-    
+
     @ques.each do |a|
       temp=@quiz.answered_questions.build
       temp.question_id=a
@@ -107,6 +107,8 @@ load_and_authorize_resource
   # DELETE /quizzes/1.xml
   def destroy
     @quiz = Quiz.find(params[:id])
+    @quiz.user.completo = false
+    @quiz.user.save
     @quiz.destroy
 
     respond_to do |format|
@@ -114,11 +116,11 @@ load_and_authorize_resource
       format.xml  { head :ok }
     end
   end
-  
+
   def completado
   end
-  
+
   def desconocido
   end
-  
+
 end

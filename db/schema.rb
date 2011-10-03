@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110718023840) do
+ActiveRecord::Schema.define(:version => 20111003210613) do
 
   create_table "answered_questions", :force => true do |t|
     t.integer  "question_id"
@@ -115,6 +115,7 @@ ActiveRecord::Schema.define(:version => 20110718023840) do
     t.integer  "materia_2"
     t.integer  "materia_3"
     t.boolean  "completo"
+    t.integer  "quiz_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
