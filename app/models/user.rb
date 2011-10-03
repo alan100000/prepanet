@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
           :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation ,
+  attr_accessible :email, :password, :password_confirmation , :quiz_id,
 		  :nombre ,:apellido_paterno ,:apellido_materno ,:sexo ,:matricula ,
 		  :telefono_particular, :telefono_celular , :email_personal,
 		  :promedio_global_acumulado, :promedio_del_semestre_anterior,
@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   #RELACIONES
   belongs_to :major
   has_many :courses
-
+  has_one :quiz
 
   validates_presence_of :password_confirmation, :on=>:create, :message => ": Contrasena invalida"
 
