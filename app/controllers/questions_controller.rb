@@ -25,6 +25,7 @@ class QuestionsController < ApplicationController
   # GET /questions/new.xml
   def new
     @question = Question.new
+    @acciones = "Crear Pregunta"
 
     4.times {@question.answers.build}
 
@@ -37,6 +38,8 @@ class QuestionsController < ApplicationController
   # GET /questions/1/edit
   def edit
     @question = Question.find(params[:id])
+    @acciones = "Editar Pregunta"
+
   end
 
   # POST /questions

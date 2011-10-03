@@ -16,7 +16,7 @@
     <%= f.text_area :content , :rows => 3%>
   </div>
   <div class="field">
-    <% index = 1 %> 
+    <% index = 1 %>
     <%= f.fields_for :answers do |builder| %>
       <p>
         <%= builder.label :content, "Answer" %><br />
@@ -24,11 +24,11 @@
         <%= builder.label :option, "Correcta" %>
         <%= builder.hidden_field :option, :value => "#{index}" %>
         <%= radio_button :question, :correct_answer, "#{index}" %>
-        <% index += 1 %> 
+        <% index += 1 %>
       </p>
     <% end %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit @acciones %>
   </div>
 <% end %>

@@ -21,7 +21,7 @@ load_and_authorize_resource
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @course }
-      
+
     end
   end
 
@@ -29,6 +29,7 @@ load_and_authorize_resource
   # GET /courses/new.xml
   def new
     @course = Course.new
+    @acciones = "Crear Curso"
 
     respond_to do |format|
       format.html # new.html.erb
@@ -39,6 +40,8 @@ load_and_authorize_resource
   # GET /courses/1/edit
   def edit
     @course = Course.find(params[:id])
+    @acciones = "Editar Curso"
+
   end
 
   # POST /courses
@@ -46,7 +49,7 @@ load_and_authorize_resource
   def create
     @course = Course.new(params[:course])
     areastring = params[:area]
-    
+
     a=Area.where(:nombre => areastring)
         @course.area_id=a[0].id
 
@@ -88,9 +91,9 @@ load_and_authorize_resource
       format.xml  { head :ok }
     end
   end
-  
+
   def lista
-  
+
   end
-  
+
 end

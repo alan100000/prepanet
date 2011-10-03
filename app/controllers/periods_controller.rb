@@ -88,7 +88,7 @@ class PeriodsController < ApplicationController
   # GET /periods/new.xml
   def new
     @period = Period.new
-
+    @acciones = "Crear Periodo"
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @period }
@@ -98,6 +98,8 @@ class PeriodsController < ApplicationController
   # GET /periods/1/edit
   def edit
     @period = Period.find(params[:id])
+    @acciones = "Editar Periodo"
+
   end
 
   # POST /periods

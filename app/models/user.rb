@@ -12,11 +12,11 @@ class User < ActiveRecord::Base
 		  :nombre_del_seguro, :compania, :numero_de_poliza, :fecha_de_vencimiento, :contacto_emergencia, :parentesco, :telefono_emergencia,
 		  :major_id, :materia_1, :materia_2, :materia_3,
 		  :remember_me
-		  
+
   #RELACIONES
-  has_one :major
+  belongs_to :major
   has_many :courses
-   
+
 
   validates_presence_of :password_confirmation, :on=>:create, :message => ": Contrasena invalida"
 

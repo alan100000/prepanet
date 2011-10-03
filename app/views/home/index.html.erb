@@ -1,1 +1,6 @@
-<%=image_tag "imagenInicio.jpg", :class=>'imagenInicio'%>
+<% if current_user == nil %>
+<%= image_tag "imagenInicio.jpg", :class=>'imagenInicio' %>
+<% else %>
+Para completar tu solicitud porfavor lee y contesta los apartados de: Reglamento, Materias y Quiz<br />
+Lee el reglamento antes de contestar el quiz, ya que pueden venir preguntas del reglamento.
+<% end %>

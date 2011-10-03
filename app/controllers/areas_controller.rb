@@ -29,6 +29,7 @@ load_and_authorize_resource
   # GET /areas/new.xml
   def new
     @area = Area.new
+    @acciones = "Crear area"
 
     respond_to do |format|
       format.html # new.html.erb
@@ -39,6 +40,8 @@ load_and_authorize_resource
   # GET /areas/1/edit
   def edit
     @area = Area.find(params[:id])
+    @acciones = "Editar area"
+
   end
 
   # POST /areas

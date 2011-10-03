@@ -28,6 +28,7 @@ load_and_authorize_resource
   # GET /majors/new.xml
   def new
     @major = Major.new
+    @acciones = "Crear Carrera"
 
     respond_to do |format|
       format.html # new.html.erb
@@ -38,6 +39,8 @@ load_and_authorize_resource
   # GET /majors/1/edit
   def edit
     @major = Major.find(params[:id])
+    @acciones = "Editar Carrera"
+
   end
 
   # POST /majors
