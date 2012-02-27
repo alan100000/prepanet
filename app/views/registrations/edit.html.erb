@@ -1,19 +1,19 @@
-<h2>Editar <%= resource_name.to_s.humanize %></h2>
+<h2>Selección de Materias</h2>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
 	<%carrera=Major.find(current_user.major_id)%>
 
    <p><%= f.label :materia_1 %><br />
-  		<%= f.select("materia_1", Course.where(:area_id=>carrera.area_1||carrera.area_2||carrera.area_3||carrera.area_4||carrera.area_5).collect{|c| [c.nombre, c.id]})%>
+  		<%= f.select("materia_1", Course.where(:area_id=>carrera.area_1).collect{|c| [c.nombre, c.id]})%>
    </p>
    
    <p><%= f.label :materia_2 %><br />
-  		<%= f.select("materia_2", Course.where(:area_id=>carrera.area_1||carrera.area_2||carrera.area_3||carrera.area_4||carrera.area_5).collect{|c| [c.nombre, c.id]})%>
+  		<%= f.select("materia_2", Course.where(:area_id=>carrera.area_2).collect{|c| [c.nombre, c.id]})%>
    </p>
    
    <p><%= f.label :materia_3 %><br />
-  		<%= f.select("materia_3", Course.where(:area_id=>carrera.area_1||carrera.area_2||carrera.area_3||carrera.area_4||carrera.area_5).collect{|c| [c.nombre, c.id]})%>
+  		<%= f.select("materia_3", Course.where(:area_id=>carrera.area_3).collect{|c| [c.nombre, c.id]})%>
    </p>
 
   <p><%= f.label :current_password %> <i>Por motivos de seguridad es necesario que introduzcas tu contraseña.</i><br />
